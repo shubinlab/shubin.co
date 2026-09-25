@@ -1,6 +1,6 @@
 # shubin.co
 
-Public source mirror of the bilingual static profile site: <https://shubin.co/>.
+Canonical public source and active custom-domain Pages site for Yuri Shubin: <https://shubin.co/>.
 
 ## Routes
 
@@ -10,7 +10,7 @@ Public source mirror of the bilingual static profile site: <https://shubin.co/>.
 - `og-card*.png`, `favicon*`, and `yuri-shubin-avatar.webp` — social and browser images
 - `yuri-shubin.vcf` — downloadable contact card
 - `robots.txt`, `sitemap.xml`, and `llms.txt` — crawler/discovery files
-- `CNAME` — intended GitHub Pages custom domain
+- `CNAME` — custom-domain binding for GitHub Pages (`shubin.co`)
 
 The deliberately small, flat layout has no package manager, framework, or build step. `.nojekyll` keeps GitHub Pages from treating the repository as a Jekyll project.
 
