@@ -16,7 +16,7 @@ The deliberately small, flat layout has no package manager, framework, or build 
 
 ## Publishing
 
-The live custom-domain Pages source remains `shubinlab/shubin-co-pages` (`main` / root) to preserve its existing binding. This repository contains the clean public copy. Before moving the domain, update the Pages settings so `shubin.co` is assigned to only one repository.
+GitHub Pages publishes the `main` branch root at <https://shubin.co/>. Keep `CNAME` set to `shubin.co`. The repository uses plain static files, no Jekyll processing or build step.
 
 ## Local preview
 
