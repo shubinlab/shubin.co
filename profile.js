@@ -235,10 +235,10 @@
 
       const DENSITY_CHARSET = ' .:-=+*#%@';
       // Tuning constants
-      const DISSIPATION = 0.988;
-      const AUTO_MOTION_DEPOSIT_SCALE = 0.045;
-      const POINTER_DEPOSIT_SCALE = 0.12;
-      const CLICK_BURST_DEPOSIT_SCALE = 0.12;
+      const DISSIPATION = 0.985;
+      const AUTO_MOTION_DEPOSIT_SCALE = 0.032;
+      const POINTER_DEPOSIT_SCALE = 0.10;
+      const CLICK_BURST_DEPOSIT_SCALE = 0.10;
       const CLICK_BURST_DURATION = 2500;
 
       // Common input state
@@ -306,16 +306,16 @@
       // Single effect definition
       const effect = {
         background: '#000',
-        color: '#a5ff9f',
+        color: 'rgba(165, 255, 159, 0.72)',
         update(t, dt) {
           const N = fluid.nx, M = fluid.ny;
           const cx = N * 0.5, cy = M * 0.5;
-          for (let j = 2; j < M; j += 4) {
-            for (let i = 2; i < N; i += 4) {
+          for (let j = 2; j < M; j += 5) {
+            for (let i = 2; i < N; i += 5) {
               const dx = i - cx, dy = j - cy;
               const inv = 1 / Math.max(1, Math.hypot(dx, dy));
-              const fx = -dy * 0.05 * inv;
-              const fy = dx * 0.05 * inv;
+              const fx = -dy * 0.035 * inv;
+              const fy = dx * 0.035 * inv;
               fluid.addVelocity(i, j, fx, fy);
             }
           }
@@ -651,14 +651,14 @@
         if ((paused || reducedMotion.matches) && !force) return;
         const rect = pre.getBoundingClientRect();
         if (!rect.width || !rect.height) return;
-        const originX = rect.left + rect.width * (Math.random() < 0.5 ? 0.06 : 0.94);
-        const originY = rect.top + rect.height * (0.35 + Math.random() * 0.3);
+        const originX = rect.left + rect.width * (0.20 + Math.random() * 0.60);
+        const originY = rect.top + rect.height * (0.25 + Math.random() * 0.50);
         const edgeX = startAt ? Math.min(startAt.x - rect.left, rect.right - startAt.x) : rect.width * 0.5;
         const edgeY = startAt ? Math.min(startAt.y - rect.top, rect.bottom - startAt.y) : rect.height * 0.5;
         const scaleX = 0.65 + Math.random() * 0.45;
         const scaleY = 0.65 + Math.random() * 0.45;
-        const radiusX = Math.min(rect.width * 0.36, Math.max(18, edgeX * 0.42)) * scaleX;
-        const radiusY = Math.min(rect.height * 0.34, Math.max(18, edgeY * 0.42)) * scaleY;
+        const radiusX = Math.min(rect.width * 0.42, Math.max(24, edgeX * 0.50)) * scaleX;
+        const radiusY = Math.min(rect.height * 0.38, Math.max(24, edgeY * 0.50)) * scaleY;
         const pathStartX = startAt?.x ?? originX;
         const pathStartY = startAt?.y ?? originY;
         const phaseA = Math.random() * Math.PI * 2;
@@ -683,7 +683,7 @@
         }
       }
 
-      const AUTO_MOTION_STRENGTH = 6;
+      const AUTO_MOTION_STRENGTH = 4.5;
       const MOTION_STEP_MS = 500;
 
 
