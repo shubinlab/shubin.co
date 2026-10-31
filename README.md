@@ -9,6 +9,7 @@ Canonical public source and active custom-domain Pages site for Yuri Shubin: <ht
 - `profile.css` and `profile.js` — shared styles and interaction/animation
 - `og-card*.png`, `favicon*`, and `yuri-shubin-avatar.webp` — social and browser images
 - `yuri-shubin.vcf` — downloadable contact card
+- `k` — short terminal entry point for the Kinescope installer; keep it byte-for-byte in sync with `shubinlab/kinescope-download` release `install.sh`.
 - `robots.txt`, `sitemap.xml`, and `llms.txt` — crawler/discovery files
 - `CNAME` — custom-domain binding for GitHub Pages (`shubin.co`)
 
