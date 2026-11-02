@@ -7,6 +7,7 @@ This is the primary English profile. Russian profile: https://shubin.co/ru/. `ll
 ## Languages
 - [English](https://shubin.co/)
 - [Русский](https://shubin.co/ru/)
+- [Privacy and measurement](https://shubin.co/privacy/)
 
 ## Contact
 - [Email](mailto:hello@shubin.co)

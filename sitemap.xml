@@ -12,4 +12,7 @@
     <xhtml:link rel="alternate" hreflang="ru" href="https://shubin.co/ru/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://shubin.co/" />
   </url>
+  <url>
+    <loc>https://shubin.co/privacy/</loc>
+  </url>
 </urlset>

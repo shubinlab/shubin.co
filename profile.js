@@ -524,12 +524,12 @@
         motionToggle.setAttribute('aria-pressed', String(!paused));
       }
 
-      function syncContactDrafts(copy) {
-        const body = copy.emailBody.replace(/\n/g, '\r\n');
-        document.getElementById('email-action').href =
-          `mailto:hello@shubin.co?subject=${encodeURIComponent(copy.emailSubject)}&body=${encodeURIComponent(body)}`;
-        document.getElementById('telegram-action').href =
-          `https://t.me/shubin?text=${encodeURIComponent(copy.telegramDraft)}`;
+      function syncContactRoutes() {
+        document.getElementById('email-action').href = '/contact/email/';
+        document.getElementById('telegram-action').href = '/contact/telegram/';
+        const contactAction = document.getElementById('contact-action');
+        contactAction.href = '/contact/vcard/';
+        contactAction.removeAttribute('download');
       }
 
       function setLanguage(nextLanguage) {
@@ -543,7 +543,7 @@
         personData.jobTitle = copy.role;
         personData.description = copy.intro;
         personDataElement.textContent = JSON.stringify(personData);
-        syncContactDrafts(copy);
+        syncContactRoutes();
         document.getElementById('brand-label').textContent = copy.brand;
         document.getElementById('profile-name').textContent = copy.name;
         document.getElementById('profile-photo').alt = copy.photoAlt;
@@ -767,4 +767,3 @@
       setLanguage(language);
       showLocaleSuggestion();
       resizeAll();
-    
