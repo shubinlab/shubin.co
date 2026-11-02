@@ -7,6 +7,7 @@
   const analyticsTitle = script?.dataset.analyticsTitle || pageType;
   const privacyUrl = script?.dataset.privacyUrl || '/privacy/';
   const signalsEnabled = script?.dataset.googleSignals === 'true';
+  const consentTheme = script?.dataset.consentTheme || 'atom';
   const consentVersion = /^\d+$/.test(script?.dataset.consentVersion || '') ? script.dataset.consentVersion : '1';
   // Bump data-consent-version before adding a new vendor or purpose, so existing choices cannot silently enable it.
   const storageKey = `site_consent_v${consentVersion}`;
@@ -184,8 +185,8 @@
     const ru = /^ru(?:-|$)/i.test(document.documentElement.lang);
     const toolName = clarityId ? 'Google Analytics и Microsoft Clarity' : 'Google Analytics';
     return ru ? {
-      title: 'Настройки приватности',
-      intro: `${toolName} ${clarityId ? 'загружаются' : 'загружается'} только если вы разрешите аналитику. Считаются страницы, устройства, страны и фиксированные действия.`,
+      title: 'Ваш выбор',
+      intro: `${toolName} включится только с вашего разрешения.`,
       details: `GA4 автоматически получает URL страницы, заголовок и источник перехода. События скачивания могут включать URL файла; пользовательские CTA и контактные события содержат только фиксированные метки. Не помещайте персональные данные в URL или заголовки страниц.${clarityId ? ' Clarity записывает взаимодействия со страницей после согласия.' : ' Microsoft Clarity на этой странице сейчас не включён.'} Выбор можно изменить в любое время.`,
       required: 'Только необходимые', analytics: 'Разрешить аналитику', preferences: 'Настроить',
       analyticsLabel: 'Аналитика посещений, устройств, стран и взаимодействия со страницей',
@@ -193,10 +194,10 @@
       save: 'Сохранить выбор', settings: 'Настройки приватности',
       sitePrivacy: 'Уведомление об аналитике', google: 'Политика конфиденциальности Google', microsoft: 'Политика конфиденциальности Microsoft',
       necessaryLabel: 'Необходимые настройки согласия (всегда включены)',
-      close: 'Закрыть настройки'
+      close: 'Разрешить аналитику и закрыть'
     } : {
-      title: 'Privacy settings',
-      intro: `${clarityId ? 'Google Analytics and Microsoft Clarity load' : 'Google Analytics loads'} only if you allow analytics. Measurement covers pages, devices, countries, and fixed action labels.`,
+      title: 'Your choice',
+      intro: `${clarityId ? 'Google Analytics and Microsoft Clarity' : 'Google Analytics'} runs only if you allow it.`,
       details: `GA4 automatically receives the page URL, title, and referrer. Download events may include a file URL; custom CTA and contact events contain only fixed labels. Keep personal data out of URLs and page titles.${clarityId ? ' Clarity records page interactions after consent.' : ' Microsoft Clarity is not currently enabled on this page.'} You can change your choice at any time.`,
       required: 'Necessary only', analytics: 'Allow analytics', preferences: 'Preferences',
       analyticsLabel: 'Visits, devices, countries, and page interactions',
@@ -204,7 +205,7 @@
       save: 'Save choices', settings: 'Privacy settings',
       sitePrivacy: 'Privacy and measurement notice', google: 'Google Privacy Policy', microsoft: 'Microsoft Privacy Statement',
       necessaryLabel: 'Necessary consent preference (always on)',
-      close: 'Close settings'
+      close: 'Allow analytics and close'
     };
   }
 
@@ -213,10 +214,12 @@
     const root = document.createElement('aside');
     root.className = 'consent-panel';
     root.dataset.consentRoot = '';
+    root.dataset.consentTheme = consentTheme;
     root.setAttribute('role', 'region');
     root.setAttribute('aria-labelledby', 'consent-title');
     root.innerHTML = `
       <div class="consent-card">
+        <button type="button" class="consent-close" data-consent-action="analytics" aria-label="${text.close}" title="${text.close}">×</button>
         <div class="consent-copy">
           <h2 id="consent-title">${text.title}</h2>
           <p>${text.intro}</p>
@@ -237,6 +240,7 @@
     document.body.appendChild(root);
     const manage = document.createElement('button');
     manage.className = 'consent-manage';
+    manage.dataset.consentTheme = consentTheme;
     manage.type = 'button';
     manage.dataset.consentAction = 'manage';
     manage.textContent = text.settings;
