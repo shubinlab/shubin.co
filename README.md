@@ -23,7 +23,7 @@ The deliberately small, flat layout has no package manager, framework, or build 
 
 - `consent.js` stores the visitor's choice in a first-party cookie scoped to `.shubin.co`; it does not load GA4 until analytics is accepted.
 - Email and Telegram clicks use the `contact_click` intent event. vCard clicks use `vcard_click`; opening the share sheet uses `contact_share_click`. The latter two are not key events. Events send fixed methods only, not addresses, message text, or clicked URLs.
-- `robots.txt` allows OAI-SearchBot and Claude-SearchBot while disallowing GPTBot, ClaudeBot, CCBot, and Amazonbot. Google-Extended is allowed for Gemini grounding and training. Google Search uses Googlebot, which is allowed by the wildcard group.
+- `robots.txt` allows OAI-SearchBot and Claude-SearchBot while disallowing GPTBot, ClaudeBot, CCBot, and Amazonbot. It sets the shared `__usage_ai-training` preference to Disallow. Google-Extended is an explicit exception: Gemini grounding and training are allowed. Google Search uses Googlebot, which is allowed by the wildcard group.
 - Clarity stays inactive until a project is created and its consent mode is enabled.
 
 ## Publishing
