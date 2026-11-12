@@ -103,7 +103,11 @@
     setClarityConsent(choice);
     if (measurementId) {
       window.gtag('js', new Date());
-      window.gtag('config', measurementId, { page_title: analyticsTitle });
+      window.gtag('config', measurementId, {
+        page_title: analyticsTitle,
+        allow_google_signals: false,
+        allow_ad_personalization_signals: false
+      });
       addTag(`https://www.googletagmanager.com/gtag/js?id=${encodeURIComponent(measurementId)}`);
     }
     if (clarityId) addTag(`https://www.clarity.ms/tag/${encodeURIComponent(clarityId)}`);
@@ -176,9 +180,6 @@
       return;
     }
 
-    if (isLink && /^https?:/i.test(href) && control.origin !== location.origin) {
-      try { emit('outbound_click', { destination_host: new URL(href, location.href).hostname }); } catch (_) { /* Ignore malformed links. */ }
-    }
   }
 
   function strings() {
@@ -187,7 +188,7 @@
     return ru ? {
       title: 'Ваш выбор',
       intro: `${toolName} включится только с вашего разрешения.`,
-      details: `GA4 автоматически получает URL страницы, заголовок и источник перехода. События скачивания могут включать URL файла; пользовательские CTA и контактные события содержат только фиксированные метки. Не помещайте персональные данные в URL или заголовки страниц.${clarityId ? ' Clarity записывает взаимодействия со страницей после согласия.' : ' Microsoft Clarity на этой странице сейчас не включён.'} Выбор можно изменить в любое время.`,
+      details: `GA4 автоматически получает URL страницы, заголовок и источник перехода. Контактные события передают фиксированные метки. Внешние переходы и скачивания автоматически не измеряются. Не помещайте персональные данные в URL или заголовки страниц.${clarityId ? ' Clarity записывает взаимодействия со страницей после согласия.' : ' Microsoft Clarity на этой странице сейчас не включён.'} Выбор можно изменить в любое время.`,
       required: 'Только необходимые', analytics: 'Разрешить аналитику', preferences: 'Настроить',
       analyticsLabel: 'Аналитика посещений, устройств, стран и взаимодействия со страницей',
       demographicsLabel: 'Google Signals: разрешить агрегированные возрастные, гендерные и тематические отчёты для части посетителей Google. Данные могут быть неполными.',
@@ -198,7 +199,7 @@
     } : {
       title: 'Your choice',
       intro: `${clarityId ? 'Google Analytics and Microsoft Clarity' : 'Google Analytics'} runs only if you allow it.`,
-      details: `GA4 automatically receives the page URL, title, and referrer. Download events may include a file URL; custom CTA and contact events contain only fixed labels. Keep personal data out of URLs and page titles.${clarityId ? ' Clarity records page interactions after consent.' : ' Microsoft Clarity is not currently enabled on this page.'} You can change your choice at any time.`,
+      details: `GA4 automatically receives the page URL, title, and referrer. Contact events use fixed method labels. External link clicks and file downloads are not automatically measured. Keep personal data out of URLs and page titles.${clarityId ? ' Clarity records page interactions after consent.' : ' Microsoft Clarity is not currently enabled on this page.'} You can change your choice at any time.`,
       required: 'Necessary only', analytics: 'Allow analytics', preferences: 'Preferences',
       analyticsLabel: 'Visits, devices, countries, and page interactions',
       demographicsLabel: 'Google Signals: allow aggregated age, gender, and interest reports for some Google users. Coverage may be limited.',

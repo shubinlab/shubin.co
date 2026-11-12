@@ -426,7 +426,9 @@
           share: 'Share contact',
           selected: 'Selected product · Digital Atom',
           description: 'A scenario-based simulator for communications teams to practise media and crisis response.',
-          proof: 'Publication · 2022 ↗',
+          proof: '2022 coverage · software registry ↗',
+          projectDetails: 'Project details ↗',
+          projectPath: '/work/digital-atom-simula/',
           nav: 'Professional profiles',
           copied: 'Contact-card link copied.',
           noShare: 'Sharing is unavailable. Copy the contact-card link from the address bar.',
@@ -457,7 +459,9 @@
           share: 'Поделиться контактом',
           selected: 'Избранный продукт · Digital Atom',
           description: 'Симулятор для PR-команд: отработка работы с новостными и кризисными ситуациями.',
-          proof: 'Публикация · 2022 ↗',
+          proof: 'Публикация о реестре ПО · 2022 ↗',
+          projectDetails: 'Описание проекта ↗',
+          projectPath: '/ru/work/digital-atom-simula/',
           nav: 'Профессиональные профили',
           copied: 'Ссылка на контактную карточку скопирована.',
           noShare: 'Поделиться не удалось. Скопируйте ссылку на контактную карточку.',
@@ -557,6 +561,9 @@
         document.getElementById('featured-label').textContent = copy.selected;
         document.getElementById('featured-description').textContent = copy.description;
         document.getElementById('proof-link').textContent = copy.proof;
+        const projectDetailsLink = document.getElementById('project-details-link');
+        projectDetailsLink.textContent = copy.projectDetails;
+        projectDetailsLink.href = copy.projectPath;
         document.getElementById('profile-nav').setAttribute('aria-label', copy.nav);
         document.getElementById('language-code').textContent = language === 'en' ? 'RU' : 'EN';
         languageToggle.setAttribute('aria-label', language === 'en' ? 'Switch to Russian' : 'Переключить на английский');

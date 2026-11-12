@@ -17,7 +17,7 @@ User-agent: ClaudeBot
 Disallow: /
 
 User-agent: Google-Extended
-Disallow: /
+Allow: /
 
 User-agent: CCBot
 Disallow: /
