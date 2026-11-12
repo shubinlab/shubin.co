@@ -2,17 +2,34 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://shubin.co/</loc>
+    <lastmod>2026-11-12</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://shubin.co/" />
     <xhtml:link rel="alternate" hreflang="ru" href="https://shubin.co/ru/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://shubin.co/" />
   </url>
   <url>
     <loc>https://shubin.co/ru/</loc>
+    <lastmod>2026-11-12</lastmod>
     <xhtml:link rel="alternate" hreflang="en" href="https://shubin.co/" />
     <xhtml:link rel="alternate" hreflang="ru" href="https://shubin.co/ru/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://shubin.co/" />
   </url>
   <url>
+    <loc>https://shubin.co/work/digital-atom-simula/</loc>
+    <lastmod>2026-11-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://shubin.co/work/digital-atom-simula/" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://shubin.co/ru/work/digital-atom-simula/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://shubin.co/work/digital-atom-simula/" />
+  </url>
+  <url>
+    <loc>https://shubin.co/ru/work/digital-atom-simula/</loc>
+    <lastmod>2026-11-12</lastmod>
+    <xhtml:link rel="alternate" hreflang="en" href="https://shubin.co/work/digital-atom-simula/" />
+    <xhtml:link rel="alternate" hreflang="ru" href="https://shubin.co/ru/work/digital-atom-simula/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://shubin.co/work/digital-atom-simula/" />
+  </url>
+  <url>
     <loc>https://shubin.co/privacy/</loc>
+    <lastmod>2026-11-12</lastmod>
   </url>
 </urlset>
