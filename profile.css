@@ -123,6 +123,7 @@
         letter-spacing: 0.13em;
         text-transform: uppercase;
       }
+      #featured-label { letter-spacing: normal; text-transform: none; }
       h1 {
         margin: 7px 0 4px;
         font-size: clamp(30px, 3.4vw, 42px);
