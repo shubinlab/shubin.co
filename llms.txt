@@ -10,7 +10,7 @@ This is the primary English profile. Russian profile: https://shubin.co/ru/. `ll
 - [Privacy and measurement](https://shubin.co/privacy/)
 
 ## Contact
-- [Email](mailto:hello@shubin.co)
+- [Email](mailto:hey@shubin.co)
 - [Telegram](https://t.me/shubin)
 - [vCard](https://shubin.co/yuri-shubin.vcf)
 
@@ -19,8 +19,8 @@ This is the primary English profile. Russian profile: https://shubin.co/ru/. `ll
 - [GitHub](https://github.com/shubinlab)
 
 ## Project notes
-- [Digital Atom Simula project note (English)](https://shubin.co/work/digital-atom-simula/)
-- [Digital Atom Simula project note (Russian)](https://shubin.co/ru/work/digital-atom-simula/)
+- [Digital Atom Simula project note (English)](https://shubin.co/simula/)
+- [Digital Atom Simula project note (Russian)](https://shubin.co/ru/simula/)
 - These pages summarize a dated 2022 publication and do not claim current product availability.
 
 ## Selected work and references
