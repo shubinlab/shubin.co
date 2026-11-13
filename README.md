@@ -6,7 +6,7 @@ Canonical public source and active custom-domain Pages site for Yuri Shubin: <ht
 
 - `index.html` — English (`/`)
 - `ru/index.html` — Russian (`/ru/`)
-- `work/digital-atom-simula/` and `ru/work/digital-atom-simula/` — source-backed project note in both languages, limited to claims in the dated 2022 publication
+- `simula/` and `ru/simula/` — source-backed project note in both languages, limited to claims in the dated 2022 publication
 - `profile.css` and `profile.js` — shared profile styles and interaction/animation
 - `work.css` — styles for source-backed project pages
 - `consent.css` and `consent.js` — first-party consent UI; GA4 loads only after analytics consent
