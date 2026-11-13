@@ -249,6 +249,9 @@
         strength: 50,
         headRadius: 1,
       };
+      const hasProfileUI = !!document.getElementById('motion-toggle');
+      let language = document.documentElement.lang.toLowerCase() === 'ru' ? 'ru' : 'en';
+      let syncProfileMotionToggle = () => {};
 
       function attachPointer(el) {
         el.addEventListener('pointerdown', (e) => {
@@ -276,7 +279,7 @@
           autoMotionStart = null;
           if (paused) {
             paused = false;
-            syncMotionToggle();
+            syncProfileMotionToggle();
           }
           input.headRadius = 0.25;
           clickBurst = { x: e.clientX, y: e.clientY, started: performance.now() };
@@ -405,9 +408,9 @@
       let autoMotionStart = null;
       let autoMotionHeadPhase = 0;
       let clickBurst = null;
-      const motionToggle = document.getElementById('motion-toggle');
 
-      let language = document.documentElement.lang.toLowerCase() === 'ru' ? 'ru' : 'en';
+      if (hasProfileUI) {
+      const motionToggle = document.getElementById('motion-toggle');
       const languageToggle = document.getElementById('language-toggle');
       const languageCopy = {
         en: {
@@ -527,6 +530,7 @@
         document.getElementById('motion-play-icon').hidden = !showPlay;
         motionToggle.setAttribute('aria-pressed', String(!paused));
       }
+      syncProfileMotionToggle = syncMotionToggle;
 
       function syncContactRoutes() {
         document.getElementById('email-action').href = '/contact/email/';
@@ -634,6 +638,21 @@
           if (error.name !== 'AbortError') shareStatus.textContent = copy.shareFailed;
         }
       });
+      } else {
+        reducedMotion.addEventListener('change', (event) => {
+          paused = event.matches;
+          if (paused) {
+            autoMotion = [];
+            autoMotionStart = null;
+            input.down = false;
+            clickBurst = null;
+          } else {
+            planAutoMotion();
+          }
+          last = performance.now();
+          scheduleFrame();
+        });
+      }
 
       function scheduleFrame() {
         if (!animationFrameId && !document.hidden && !paused) {
@@ -771,6 +790,8 @@
         if (active) scheduleFrame();
       }
 
-      setLanguage(language);
-      showLocaleSuggestion();
+      if (hasProfileUI) {
+        setLanguage(language);
+        showLocaleSuggestion();
+      }
       resizeAll();
