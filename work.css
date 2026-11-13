@@ -111,9 +111,6 @@
 }
 
 .simula-hero h1 { max-width: none; margin: 10px 0 14px; font-size: clamp(20px, 2vw, 24px); line-height: 1.25; letter-spacing: -0.02em; text-wrap: balance; }
-.simula-background { position: fixed; inset: 0; z-index: 0; background: var(--bg); pointer-events: none; }
-.simula-background canvas.ascii { position: absolute; inset: 0; display: block; width: 100%; height: 100%; opacity: 0.68; -webkit-mask-image: radial-gradient(ellipse 48% 56% at 50% 50%, transparent 0%, rgba(0,0,0,.12) 16%, #000 43%, #000 100%); mask-image: radial-gradient(ellipse 48% 56% at 50% 50%, transparent 0%, rgba(0,0,0,.12) 16%, #000 43%, #000 100%); }
-.simula-body .site { z-index: 1; }
 .simula-logo { display: block; width: min(180px, 70%); height: auto; margin-bottom: 18px; }
 .simula-hero-visual { display: block; width: 100%; height: auto; border-radius: 10px; }
 .simula-hero-visual { border: 0; border-radius: 0; background: transparent; }
@@ -172,5 +169,4 @@
   .simula-capabilities, .simula-benefits { grid-template-columns: 1fr; }
   .simula-capabilities { gap: 18px; }
   .simula-gallery { grid-template-columns: 1fr; }
-  .simula-background canvas.ascii { opacity: 0.48; -webkit-mask-image: radial-gradient(ellipse 64% 52% at 50% 48%, transparent 0%, rgba(0,0,0,.18) 20%, #000 58%, #000 100%); mask-image: radial-gradient(ellipse 64% 52% at 50% 48%, transparent 0%, rgba(0,0,0,.18) 20%, #000 58%, #000 100%); }
 }
