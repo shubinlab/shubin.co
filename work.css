@@ -139,15 +139,15 @@
 .simula-logo-row { display: flex; flex-wrap: wrap; align-items: center; gap: 18px; }
 .simula-logo-row img { display: block; width: auto; max-width: min(180px, 45%); max-height: 60px; }
 .simula-attribution { margin-top: 12px; color: var(--muted); font-size: 12px; line-height: 1.6; }
-.simula-gallery { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; align-items: start; }
-.simula-award { min-width: 0; margin: 0; padding: 10px; overflow: hidden; border: 1px solid rgb(255 255 255 / 82%); border-radius: 14px; background: #fff; box-shadow: 0 12px 34px rgb(0 0 0 / 24%); }
-.simula-award:last-child { grid-column: 1 / -1; width: min(100%, 360px); justify-self: center; }
+.simula-gallery { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; align-items: start; }
+.simula-award { min-width: 0; margin: 0; padding: 6px; overflow: hidden; border: 1px solid rgb(255 255 255 / 82%); border-radius: 12px; background: #fff; box-shadow: 0 8px 24px rgb(0 0 0 / 20%); }
+.simula-award-view { display: block; cursor: zoom-in; }
 .simula-award img { display: block; width: 100%; height: auto; border-radius: 6px; }
-.simula-award figcaption { display: grid; gap: 4px; margin-top: 10px; padding: 0 4px 3px; color: #18231c; font-size: 12px; line-height: 1.45; }
-.simula-award figcaption strong { font-size: 14px; }
+.simula-award figcaption { display: grid; gap: 3px; margin-top: 7px; padding: 0 3px 2px; color: #18231c; font-size: 11px; line-height: 1.4; }
+.simula-award figcaption strong { font-size: 12px; }
 .simula-award figcaption time { color: #46574b; font-variant-numeric: tabular-nums; }
 .simula-award figcaption span { color: #46574b; }
-.simula-source-list { display: grid; gap: 0; margin: 0; padding-left: 26px; }
+.simula-source-list { display: grid; gap: 0; margin: 0; padding: 0; list-style: none; }
 .simula-source-item { padding: 14px 0 16px 4px; border-top: 1px solid var(--panel-edge); }
 .simula-source-item::marker { color: var(--accent); font-weight: 700; }
 .simula-source-item p { margin: 0 0 8px; }
@@ -160,6 +160,16 @@
 .simula-cta-link { display: inline-flex; min-height: 42px; align-items: center; justify-content: center; padding: 0 18px; border: 1px solid var(--accent); border-radius: 8px; background: var(--accent); color: #102018; font-size: 13px; font-weight: 700; text-decoration: none; }
 .simula-cta-link:hover { filter: brightness(1.08); }
 .simula-cta-link:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+.simula-mobile-app { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 14px; margin: 14px 0 0; }
+.simula-mobile-app p { margin: 0; color: var(--muted); font-size: 12px; line-height: 1.5; }
+.simula-mobile-app a { display: inline-flex; min-height: 44px; align-items: center; padding: 0 14px; border: 1px solid var(--panel-edge); border-radius: 8px; color: var(--accent); font-size: 12px; font-weight: 650; text-underline-offset: 3px; }
+.simula-mobile-app a:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+.simula-award-viewer { position: relative; width: min(94vw, 1080px); max-width: none; max-height: 94vh; overflow: auto; padding: 12px; border: 1px solid var(--panel-edge); border-radius: 14px; background: #0b1510; color: var(--text); }
+.simula-award-viewer::backdrop { background: rgb(0 0 0 / 88%); }
+.simula-award-viewer img { display: block; max-width: 100%; max-height: 82vh; width: auto; height: auto; margin: 0 auto; border-radius: 6px; background: #fff; }
+.simula-award-viewer p { margin: 10px 52px 0 0; color: var(--muted); font-size: 12px; }
+.simula-award-viewer button { position: absolute; top: 12px; right: 12px; z-index: 1; width: 40px; height: 40px; border: 1px solid var(--panel-edge); border-radius: 50%; background: #0b1510; color: var(--text); font-size: 24px; cursor: pointer; }
+.simula-award-viewer button:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
 
 @media (max-width: 520px) {
   .work-page {
@@ -187,7 +197,8 @@
   .simula-capabilities, .simula-benefits { grid-template-columns: 1fr; }
   .simula-capabilities { gap: 18px; }
   .simula-gallery { grid-template-columns: 1fr; }
-  .simula-award:last-child { grid-column: auto; width: 100%; }
   .simula-award { padding: 8px; }
-  .simula-source-list { padding-left: 22px; }
+  .simula-mobile-app { align-items: flex-start; flex-direction: column; }
+  .simula-award-viewer { padding: 8px; }
+  .simula-award-viewer button { top: 8px; right: 8px; }
 }
