@@ -27,6 +27,8 @@
   text-underline-offset: 4px;
 }
 
+.work-breadcrumb a { display: inline-flex; min-height: 44px; align-items: center; }
+
 .work-language {
   margin-left: auto;
 }
@@ -121,7 +123,7 @@
 .simula-section { margin-top: 28px; padding-top: 22px; border-top: 1px solid var(--panel-edge); }
 .simula-section h2 { margin: 0 0 16px; font-size: clamp(17px, 2vw, 22px); line-height: 1.35; }
 .simula-section h3 { margin: 0 0 8px; font-size: 15px; line-height: 1.4; }
-.simula-section p, .simula-section li { color: var(--muted); font-size: 13px; line-height: 1.65; }
+.simula-section p, .simula-section li { color: var(--muted); font-size: 14px; line-height: 1.65; }
 .simula-intro { margin-top: 22px; padding-top: 0; border-top: 0; }
 .simula-intro .work-lede { max-width: none; }
 .simula-capabilities { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px; }
@@ -143,8 +145,8 @@
 .simula-award { min-width: 0; margin: 0; padding: 6px; overflow: hidden; border: 1px solid rgb(255 255 255 / 82%); border-radius: 12px; background: #fff; box-shadow: 0 8px 24px rgb(0 0 0 / 20%); }
 .simula-award-view { display: block; cursor: zoom-in; }
 .simula-award img { display: block; width: 100%; height: auto; border-radius: 6px; }
-.simula-award figcaption { display: grid; gap: 3px; margin-top: 7px; padding: 0 3px 2px; color: #18231c; font-size: 11px; line-height: 1.4; }
-.simula-award figcaption strong { font-size: 12px; }
+.simula-award figcaption { display: grid; gap: 3px; margin-top: 7px; padding: 0 3px 2px; color: #18231c; font-size: 12px; line-height: 1.4; }
+.simula-award figcaption strong { font-size: 13px; }
 .simula-award figcaption time { color: #46574b; font-variant-numeric: tabular-nums; }
 .simula-award figcaption span { color: #46574b; }
 .simula-source-list { display: grid; gap: 0; margin: 0; padding: 0; list-style: none; }
@@ -154,21 +156,21 @@
 .simula-source-heading { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 12px; color: var(--text) !important; }
 .simula-source-heading time { color: var(--accent); font-size: 12px; font-variant-numeric: tabular-nums; }
 .simula-source-heading strong { font-size: 14px; }
-.simula-source-item a { color: var(--accent); font-size: 13px; line-height: 1.5; text-underline-offset: 3px; }
-.simula-source-links { display: flex; flex-wrap: wrap; gap: 8px 16px; }
+.simula-source-item a { display: inline-flex; min-height: 40px; align-items: center; color: var(--accent); font-size: 14px; line-height: 1.5; text-underline-offset: 3px; }
+.simula-source-links { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 16px; }
 .simula-cta p { max-width: 60ch; margin: 0 0 14px; }
-.simula-cta-link { display: inline-flex; min-height: 42px; align-items: center; justify-content: center; padding: 0 18px; border: 1px solid var(--accent); border-radius: 8px; background: var(--accent); color: #102018; font-size: 13px; font-weight: 700; text-decoration: none; }
+.simula-cta-link { display: inline-flex; min-height: 44px; align-items: center; justify-content: center; padding: 0 18px; border: 1px solid var(--accent); border-radius: 8px; background: var(--accent); color: #102018; font-size: 14px; font-weight: 700; text-decoration: none; }
 .simula-cta-link:hover { filter: brightness(1.08); }
 .simula-cta-link:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
-.simula-mobile-app { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 14px; margin: 14px 0 0; }
-.simula-mobile-app p { margin: 0; color: var(--muted); font-size: 12px; line-height: 1.5; }
-.simula-mobile-app a { display: inline-flex; min-height: 44px; align-items: center; padding: 0 14px; border: 1px solid var(--panel-edge); border-radius: 8px; color: var(--accent); font-size: 12px; font-weight: 650; text-underline-offset: 3px; }
+.simula-mobile-app { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 14px; margin: 0 0 14px; }
+.simula-mobile-app p { margin: 0; color: var(--muted); font-size: 13px; line-height: 1.5; }
+.simula-mobile-app a { display: inline-flex; min-height: 44px; align-items: center; padding: 0 16px; border: 1px solid var(--accent); border-radius: 8px; background: var(--accent); color: #102018; font-size: 14px; font-weight: 700; text-decoration: none; }
 .simula-mobile-app a:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
-.simula-award-viewer { position: relative; width: min(94vw, 1080px); max-width: none; max-height: 94vh; overflow: auto; padding: 12px; border: 1px solid var(--panel-edge); border-radius: 14px; background: #0b1510; color: var(--text); }
+.simula-award-viewer { position: fixed; inset: 0; width: min(94vw, 1080px); max-width: none; max-height: 94vh; margin: auto; overflow: auto; padding: 12px; border: 1px solid var(--panel-edge); border-radius: 14px; background: #0b1510; color: var(--text); }
 .simula-award-viewer::backdrop { background: rgb(0 0 0 / 88%); }
 .simula-award-viewer img { display: block; max-width: 100%; max-height: 82vh; width: auto; height: auto; margin: 0 auto; border-radius: 6px; background: #fff; }
 .simula-award-viewer p { margin: 10px 52px 0 0; color: var(--muted); font-size: 12px; }
-.simula-award-viewer button { position: absolute; top: 12px; right: 12px; z-index: 1; width: 40px; height: 40px; border: 1px solid var(--panel-edge); border-radius: 50%; background: #0b1510; color: var(--text); font-size: 24px; cursor: pointer; }
+.simula-award-viewer button { position: absolute; top: 12px; right: 12px; z-index: 1; width: 44px; height: 44px; border: 1px solid var(--panel-edge); border-radius: 50%; background: #0b1510; color: var(--text); font-size: 24px; cursor: pointer; }
 .simula-award-viewer button:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
 
 @media (max-width: 520px) {

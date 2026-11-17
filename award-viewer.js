@@ -14,18 +14,21 @@
   const caption = dialog.querySelector('p');
   const close = dialog.querySelector('[data-award-view-close]');
   let activeLink;
+  let previousScroll = { x: 0, y: 0 };
 
   document.addEventListener('click', event => {
     const link = event.target.closest?.('[data-award-view]');
     if (!link || dialog.open || typeof dialog.showModal !== 'function') return;
     event.preventDefault();
     activeLink = link;
+    previousScroll = { x: window.scrollX, y: window.scrollY };
     const preview = link.querySelector('img');
     image.src = link.href;
     image.alt = preview?.alt || '';
     caption.textContent = link.dataset.awardCaption || image.alt;
     dialog.showModal();
-    close.focus();
+    try { close.focus({ preventScroll: true }); } catch (_) { close.focus(); }
+    window.requestAnimationFrame(() => window.scrollTo(previousScroll.x, previousScroll.y));
   });
 
   close.addEventListener('click', () => dialog.close());
@@ -34,7 +37,8 @@
   });
   dialog.addEventListener('close', () => {
     image.removeAttribute('src');
-    activeLink?.focus();
+    try { activeLink?.focus({ preventScroll: true }); } catch (_) { activeLink?.focus(); }
+    window.requestAnimationFrame(() => window.scrollTo(previousScroll.x, previousScroll.y));
     activeLink = null;
   });
 })();
