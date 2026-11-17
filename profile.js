@@ -419,7 +419,10 @@
           actionsLabel: 'Contact actions',
           brand: 'Business · Products · AI',
           role: 'Entrepreneur and product builder',
-          intro: 'I help founders and companies find new opportunities, build digital products, and grow businesses.\n\nI love big ideas and know how to get people behind them. I build teams and take responsibility for the whole process, from the initial idea and business model to launch, day-to-day operations, and growth.\n\nI have over 20 years of experience in business and technology, with projects across oil and gas, energy, nuclear power, retail, and government. I also co-founded an online travel agency focused on flight bookings and have worked internationally.\n\nI use AI-powered solutions to help businesses launch products faster, cut costs, and find new sources of revenue.',
+          intro: 'I help founders and companies find new opportunities, build digital products, and grow businesses.',
+          aboutLabel: 'Experience and approach',
+          about: 'I love big ideas and know how to get people behind them. I build teams and take responsibility for the whole process, from the initial idea and business model to launch, day-to-day operations, and growth.\n\nI have over 20 years of experience in business and technology, with projects across oil and gas, energy, nuclear power, retail, and government. I also co-founded an online travel agency focused on flight bookings and have worked internationally.\n\nI use AI-powered solutions to help businesses launch products faster, cut costs, and find new sources of revenue.',
+          featuredImageAlt: 'Digital Atom Simula sign-in screen',
           email: 'Email',
           telegram: 'Telegram',
           emailSubject: 'Inquiry from shubin.co',
@@ -451,7 +454,10 @@
           photoAlt: 'Портрет Юрия Шубина',
           actionsLabel: 'Контакты',
           role: 'Предприниматель и создатель продуктов',
-          intro: 'Помогаю предпринимателям и компаниям находить новые возможности, создавать цифровые продукты и развивать бизнес.\n\nЛюблю большие идеи, умею увлекать ими людей и собирать команды, которые воплощают их в жизнь. Беру на себя весь путь: от идеи и бизнес-модели до запуска, ежедневной работы и развития продукта.\n\nБолее 20 лет работаю в бизнесе и IT. За плечами проекты в нефтегазе, энергетике, атомной отрасли, рознице и государственном секторе. Был сооснователем онлайн-агентства по продаже авиабилетов. Есть международный опыт.\n\nПрименяю решения с искусственным интеллектом, чтобы помогать бизнесу быстрее запускать продукты, сокращать затраты и находить новые источники дохода.',
+          intro: 'Помогаю предпринимателям и компаниям находить новые возможности, создавать цифровые продукты и развивать бизнес.',
+          aboutLabel: 'Опыт и подход',
+          about: 'Люблю большие идеи, умею увлекать ими людей и собирать команды, которые воплощают их в жизнь. Беру на себя весь путь: от идеи и бизнес-модели до запуска, ежедневной работы и развития продукта.\n\nБолее 20 лет работаю в бизнесе и IT. За плечами проекты в нефтегазе, энергетике, атомной отрасли, рознице и государственном секторе. Был сооснователем онлайн-агентства по продаже авиабилетов. Есть международный опыт.\n\nПрименяю решения с искусственным интеллектом, чтобы помогать бизнесу быстрее запускать продукты, сокращать затраты и находить новые источники дохода.',
+          featuredImageAlt: 'Экран входа в Digital Atom Simula',
           email: 'Email',
           telegram: 'Telegram',
           emailSubject: 'Запрос о сотрудничестве — shubin.co',
@@ -547,7 +553,7 @@
         const personData = JSON.parse(personDataElement.textContent);
         personData.url = pageUrl;
         personData.jobTitle = copy.role;
-        personData.description = copy.intro;
+        personData.description = `${copy.intro}\n\n${copy.about}`;
         personDataElement.textContent = JSON.stringify(personData);
         syncContactRoutes();
         document.getElementById('brand-label').textContent = copy.brand;
@@ -555,12 +561,15 @@
         document.getElementById('profile-photo').alt = copy.photoAlt;
         document.getElementById('profile-role').textContent = copy.role;
         document.getElementById('profile-intro').textContent = copy.intro;
+        document.getElementById('profile-about-label').textContent = copy.aboutLabel;
+        document.getElementById('profile-about-copy').textContent = copy.about;
         document.getElementById('contact-actions').setAttribute('aria-label', copy.actionsLabel);
         document.getElementById('email-action-label').textContent = copy.email;
         document.getElementById('telegram-action-label').textContent = copy.telegram;
         document.getElementById('contact-action-label').textContent = copy.contact;
         document.getElementById('share-contact-label').textContent = copy.share;
         document.getElementById('featured-label').textContent = copy.selected;
+        document.getElementById('featured-image').alt = copy.featuredImageAlt;
         document.getElementById('featured-description').textContent = copy.description;
         const projectDetailsLink = document.getElementById('project-details-link');
         projectDetailsLink.textContent = copy.projectDetails;
