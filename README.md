@@ -9,7 +9,7 @@ Canonical public source and active custom-domain Pages site for Yuri Shubin: <ht
 - `simula/` and `ru/simula/` — source-backed project note in both languages, limited to claims in the dated 2022 publication
 - `profile.css` and `profile.js` — shared profile styles and interaction/animation
 - `work.css` — styles for source-backed project pages
-- `consent.css` and `consent.js` — first-party consent UI; GA4 loads only after analytics consent
+- `analytics.js` — first-party GA4 event tracking; GA4 loads on every page view
 - `contact/email/` and `contact/telegram/` — safe contact redirects used so analytics vendors never receive the full contact URL
 - `og-card*.png`, `favicon*`, and `yuri-shubin-avatar.webp` — social and browser images
 - `yuri-shubin.vcf` — downloadable contact card
@@ -21,10 +21,10 @@ The deliberately small, flat layout has no package manager, framework, or build 
 
 ## Analytics and crawlers
 
-- `consent.js` stores the visitor's choice in a first-party cookie scoped to `.shubin.co`; it does not load GA4 until analytics is accepted.
+- GA4 loads when a page opens. The site does not display an analytics choice dialog or store an analytics preference.
 - Email and Telegram clicks use the `contact_click` intent event. vCard clicks use `vcard_click`; opening the share sheet uses `contact_share_click`. The latter two are not key events. Events send fixed methods only, not addresses, message text, or clicked URLs.
 - `robots.txt` allows OAI-SearchBot and Claude-SearchBot while disallowing GPTBot, ClaudeBot, CCBot, and Amazonbot. It sets the shared `__usage_ai-training` preference to Disallow. Google-Extended is an explicit exception: Gemini grounding and training are allowed. Google Search uses Googlebot, which is allowed by the wildcard group.
-- Clarity stays inactive until a project is created and its consent mode is enabled.
+- Microsoft Clarity is not installed or active on this site.
 
 ## Publishing
 
