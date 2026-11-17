@@ -156,6 +156,10 @@
 .simula-source-heading strong { font-size: 14px; }
 .simula-source-item a { color: var(--accent); font-size: 13px; line-height: 1.5; text-underline-offset: 3px; }
 .simula-source-links { display: flex; flex-wrap: wrap; gap: 8px 16px; }
+.simula-cta p { max-width: 60ch; margin: 0 0 14px; }
+.simula-cta-link { display: inline-flex; min-height: 42px; align-items: center; justify-content: center; padding: 0 18px; border: 1px solid var(--accent); border-radius: 8px; background: var(--accent); color: #102018; font-size: 13px; font-weight: 700; text-decoration: none; }
+.simula-cta-link:hover { filter: brightness(1.08); }
+.simula-cta-link:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
 
 @media (max-width: 520px) {
   .work-page {
