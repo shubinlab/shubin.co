@@ -429,7 +429,6 @@
           share: 'Share contact',
           selected: 'Selected product',
           description: 'Interactive AI simulator for managing the information space in crisis situations.',
-          proof: 'Usecase',
           projectDetails: 'Product details',
           projectPath: '/simula/',
           nav: 'Professional profiles',
@@ -462,7 +461,6 @@
           share: 'Поделиться контактом',
           selected: 'Selected product',
           description: 'Интерактивный ИИ-тренажер управления информационным полем в кризисных ситуациях',
-          proof: 'Пример использования',
           projectDetails: 'Описание продукта',
           projectPath: '/ru/simula/',
           nav: 'Профессиональные профили',
@@ -564,7 +562,6 @@
         document.getElementById('share-contact-label').textContent = copy.share;
         document.getElementById('featured-label').textContent = copy.selected;
         document.getElementById('featured-description').textContent = copy.description;
-        document.getElementById('proof-link').textContent = copy.proof;
         const projectDetailsLink = document.getElementById('project-details-link');
         projectDetailsLink.textContent = copy.projectDetails;
         projectDetailsLink.href = copy.projectPath;
