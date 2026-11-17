@@ -143,6 +143,7 @@
         font-size: 13px;
         line-height: 1.45;
         text-wrap: pretty;
+        white-space: pre-line;
       }
       .locale-suggestion {
         display: flex;
@@ -399,7 +400,7 @@
           white-space: nowrap;
         }
         .hero-copy .role { font-size: 13px; line-height: 1.35; }
-        .intro { margin-top: 8px; font-size: 12px; line-height: 1.4; }
+        .intro { margin-top: 8px; font-size: 13px; line-height: 1.5; }
         .actions { margin-top: 18px; }
         .action { min-height: 44px; padding: 8px; font-size: 11px; }
         .featured { margin-top: 20px; padding-top: 16px; }
