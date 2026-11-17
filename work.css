@@ -145,10 +145,11 @@
 .simula-award { min-width: 0; margin: 0; padding: 6px; overflow: hidden; border: 1px solid rgb(255 255 255 / 82%); border-radius: 12px; background: #fff; box-shadow: 0 8px 24px rgb(0 0 0 / 20%); }
 .simula-award-view { display: block; cursor: zoom-in; }
 .simula-award img { display: block; width: 100%; height: auto; border-radius: 6px; }
-.simula-award figcaption { display: grid; gap: 3px; margin-top: 7px; padding: 0 3px 2px; color: #18231c; font-size: 12px; line-height: 1.4; }
-.simula-award figcaption strong { font-size: 13px; }
+.simula-award figcaption { display: grid; grid-template-rows: 1.4em 1.4em 2.8em; gap: 3px; margin-top: 7px; padding: 0 3px 2px; color: #18231c; font-size: 13px; line-height: 1.4; }
+.simula-award figcaption strong { font-size: inherit; }
+.simula-award figcaption strong, .simula-award figcaption time { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .simula-award figcaption time { color: #46574b; font-variant-numeric: tabular-nums; }
-.simula-award figcaption span { color: #46574b; }
+.simula-award figcaption span { display: -webkit-box; overflow: hidden; color: #46574b; -webkit-box-orient: vertical; -webkit-line-clamp: 2; }
 .simula-source-list { display: grid; gap: 0; margin: 0; padding: 0; list-style: none; }
 .simula-source-item { padding: 14px 0 16px 4px; border-top: 1px solid var(--panel-edge); }
 .simula-source-item::marker { color: var(--accent); font-weight: 700; }
@@ -162,7 +163,7 @@
 .simula-cta-link { display: inline-flex; min-height: 44px; align-items: center; justify-content: center; padding: 0 18px; border: 1px solid var(--accent); border-radius: 8px; background: var(--accent); color: #102018; font-size: 14px; font-weight: 700; text-decoration: none; }
 .simula-cta-link:hover { filter: brightness(1.08); }
 .simula-cta-link:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
-.simula-mobile-app { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 14px; margin: 0 0 14px; }
+.simula-mobile-app { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 14px; margin: 18px 0 0; }
 .simula-mobile-app p { margin: 0; color: var(--muted); font-size: 13px; line-height: 1.5; }
 .simula-mobile-app a { display: inline-flex; min-height: 44px; align-items: center; padding: 0 16px; border: 1px solid var(--accent); border-radius: 8px; background: var(--accent); color: #102018; font-size: 14px; font-weight: 700; text-decoration: none; }
 .simula-mobile-app a:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
