@@ -420,12 +420,13 @@
           otherContactLabel: 'Secondary contact options',
           brand: 'Business · Products · AI',
           role: 'Entrepreneur and product builder',
-          intro: 'I help founders and companies find new opportunities, build digital products, and grow businesses.',
+          intro: 'I spot new business opportunities, get people excited about new ideas, and build teams that turn those ideas into real products.',
           aboutLabel: 'Experience and key moments',
           aboutBlocks: [
-            { lead: 'I love big ideas', text: ' and know how to get people behind them. I build teams and take responsibility for the whole process, from the initial idea and business model to launch, day-to-day operations, and growth.' },
-            { lead: 'I have over 20 years of experience in business and technology,', text: ' with projects across oil and gas, energy, nuclear power, retail, and government. I also co-founded an online travel agency focused on flight bookings and have worked internationally.' },
-            { lead: 'I use AI-powered solutions', text: ' to help businesses launch products faster, cut costs, and find new sources of revenue.' }
+            { lead: "I've spent over 20 years starting businesses and leading major projects.", text: ' I was deputy CEO of a company with over 1,500 employees and managed IT outsourcing under a three-year contract worth $25 million.' },
+            { lead: 'In the nuclear energy industry, I started and led a digital products division.', text: ' I grew the team from 2 to 50 people. We built, launched, and supported digital products, including a platform used by tens of thousands of employees. I also co-founded an online travel agency.' },
+            { lead: "Today, I'm building Shubin Lab.", text: ' I research markets, competitors, and customer needs. I help business owners figure out which ideas are worth their time and money, how they could make money, and what it would take to bring them to life.' },
+            { lead: "I'm especially interested in AI and SaaS.", text: '' }
           ],
           featuredImageAlt: 'Digital Atom Simula sign-in screen',
           email: 'Email',
@@ -434,7 +435,8 @@
           emailBody: 'Hi Yuri,\n\nI would like to discuss a possible collaboration.\n\nBest regards,',
           telegramDraft: 'Hi Yuri, I would like to discuss a project.',
           contact: 'Save contact',
-          share: 'Share contact',
+          share: 'Share',
+          shareAriaLabel: 'Share contact',
           selected: 'One of my products',
           description: 'Interactive AI simulator for managing the information space in crisis situations.',
           projectDetails: 'Product details',
@@ -444,9 +446,9 @@
           noShare: 'Sharing is unavailable. Copy the contact-card link from the address bar.',
           shareFailed: 'Could not open sharing. Copy the contact-card link from the address bar.',
           title: 'Yuri Shubin — Entrepreneur & Product Builder',
-          descriptionMeta: 'Yuri Shubin helps founders and companies find opportunities, build digital products, and grow businesses. Over 20 years across business and technology, with international experience.',
+          descriptionMeta: 'Yuri Shubin spots business opportunities and builds teams and products. Over 20 years starting businesses and leading major projects, including digital products in nuclear energy. Building Shubin Lab; focused on AI and SaaS.',
           ogLocale: 'en_US',
-          ogDescription: 'Entrepreneur helping founders and companies find opportunities, build digital products, and grow businesses.',
+          ogDescription: 'I spot new business opportunities, get people excited about new ideas, and build teams that turn those ideas into real products. Building Shubin Lab; especially interested in AI and SaaS.',
           ogImageAlt: 'Portrait of Yuri Shubin, entrepreneur and product builder.',
           pageUrl: 'https://shubin.co/',
           ogImage: 'https://shubin.co/og-card.png?v=2',
@@ -460,12 +462,13 @@
           actionsLabel: 'Варианты связи',
           otherContactLabel: 'Дополнительные способы связи',
           role: 'Предприниматель и создатель продуктов',
-          intro: 'Помогаю предпринимателям и компаниям находить новые возможности, создавать цифровые продукты и развивать бизнес.',
+          intro: 'Умею находить новые возможности для бизнеса, увлекать людей идеями и собирать команды, которые превращают эти идеи в реальные продукты.',
           aboutLabel: 'Опыт и ключевые моменты',
           aboutBlocks: [
-            { lead: 'Люблю большие идеи,', text: ' умею увлекать ими людей и собирать команды, которые воплощают их в жизнь. Беру на себя весь путь: от идеи и бизнес-модели до запуска, ежедневной работы и развития продукта.' },
-            { lead: 'Более 20 лет работаю в бизнесе и IT.', text: ' За плечами проекты в нефтегазе, энергетике, атомной отрасли, рознице и государственном секторе. Был сооснователем онлайн-агентства по продаже авиабилетов. Есть международный опыт.' },
-            { lead: 'Применяю решения с искусственным интеллектом,', text: ' чтобы помогать бизнесу быстрее запускать продукты, сокращать затраты и находить новые источники дохода.' }
+            { lead: 'За 20 с лишним лет я создавал собственные компании и руководил крупными проектами.', text: ' Был заместителем генерального директора компании с более чем 1 500 сотрудниками. Руководил IT-аутсорсингом по трёхлетнему контракту на $25 млн.' },
+            { lead: 'В атомной отрасли создал и возглавил подразделение цифровых продуктов.', text: ' Вырастил команду с двух до полусотни специалистов, которые занимались разработкой, внедрением и поддержкой продуктов. Руководил созданием цифровой платформы, которой пользуются десятки тысяч сотрудников. С партнёрами также запустил онлайн-агентство по продаже авиабилетов.' },
+            { lead: 'Сейчас развиваю Shubin Lab.', text: ' Исследую рынки, конкурентов и потребности клиентов. Помогаю предпринимателям понять, какие идеи стоят времени и денег, как на них можно заработать и что потребуется, чтобы воплотить их в жизнь.' },
+            { lead: 'Больше всего меня сейчас интересуют AI и SaaS.', text: '' }
           ],
           featuredImageAlt: 'Экран входа в Digital Atom Simula',
           email: 'Email',
@@ -474,7 +477,8 @@
           emailBody: 'Здравствуйте, Юрий!\n\nПредлагаю обсудить сотрудничество.\n\nС уважением,',
           telegramDraft: 'Здравствуйте, Юрий! Предлагаю обсудить проект.',
           contact: 'В контакты',
-          share: 'Поделиться контактом',
+          share: 'Поделиться',
+          shareAriaLabel: 'Поделиться контактом',
           selected: 'Один из моих продуктов',
           description: 'Интерактивный ИИ-тренажер управления информационным полем в кризисных ситуациях',
           projectDetails: 'Описание продукта',
@@ -484,9 +488,9 @@
           noShare: 'Поделиться не удалось. Скопируйте ссылку на контактную карточку.',
           shareFailed: 'Не удалось открыть меню «Поделиться». Скопируйте ссылку на контактную карточку.',
           title: 'Юрий Шубин — Предприниматель и создатель продуктов',
-          descriptionMeta: 'Юрий Шубин помогает предпринимателям и компаниям находить возможности, создавать цифровые продукты и развивать бизнес. Более 20 лет в бизнесе и IT, международный опыт.',
+          descriptionMeta: 'Юрий Шубин создаёт компании, руководит крупными проектами и цифровыми продуктами. Более 20 лет опыта, включая атомную отрасль. Развивает Shubin Lab, интересуется AI и SaaS.',
           ogLocale: 'ru_RU',
-          ogDescription: 'Предприниматель, который помогает находить возможности, создавать цифровые продукты и развивать бизнес.',
+          ogDescription: 'Умею находить новые возможности для бизнеса, увлекать людей идеями и собирать команды, которые превращают эти идеи в реальные продукты. Развиваю Shubin Lab; интересуюсь AI и SaaS.',
           ogImageAlt: 'Портрет Юрия Шубина, предпринимателя и создателя продуктов.',
           pageUrl: 'https://shubin.co/ru/',
           ogImage: 'https://shubin.co/og-card-ru.png?v=1',
@@ -587,6 +591,7 @@
         document.getElementById('telegram-action-label').textContent = copy.telegram;
         document.getElementById('contact-action-label').textContent = copy.contact;
         document.getElementById('share-contact-label').textContent = copy.share;
+        document.getElementById('share-contact').setAttribute('aria-label', copy.shareAriaLabel);
         document.getElementById('featured-label').textContent = copy.selected;
         document.getElementById('featured-image').alt = copy.featuredImageAlt;
         document.getElementById('featured-description').textContent = copy.description;
