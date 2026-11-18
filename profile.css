@@ -265,7 +265,7 @@
         color: var(--muted);
         font: 15px/1.55 var(--sans);
       }
-      .featured-visual { aspect-ratio: 1.3025 / 1; margin: 14px 0 8px; overflow: hidden; border: 1px solid var(--panel-edge); border-radius: 12px; background: #e8ece9; }
+      .featured-visual { aspect-ratio: 1.8 / 1; margin: 14px 0 0; overflow: hidden; border: 1px solid var(--panel-edge); border-radius: 12px; background: #e8ece9; }
       .featured-image { display: block; width: 100%; height: 100%; object-fit: contain; object-position: center; }
       .proof-link {
         display: inline-flex;
