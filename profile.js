@@ -416,7 +416,8 @@
         en: {
           name: 'Yuri Shubin',
           photoAlt: 'Portrait of Yuri Shubin',
-          actionsLabel: 'Contact actions',
+          actionsLabel: 'Primary contact',
+          otherContactLabel: 'Other contact options',
           brand: 'Business · Products · AI',
           role: 'Entrepreneur and product builder',
           intro: 'I help founders and companies find new opportunities, build digital products, and grow businesses.',
@@ -456,7 +457,8 @@
           brand: 'Бизнес · продукты · ИИ',
           name: 'Юрий Шубин',
           photoAlt: 'Портрет Юрия Шубина',
-          actionsLabel: 'Контакты',
+          actionsLabel: 'Основной контакт',
+          otherContactLabel: 'Другие способы связи',
           role: 'Предприниматель и создатель продуктов',
           intro: 'Помогаю предпринимателям и компаниям находить новые возможности, создавать цифровые продукты и развивать бизнес.',
           aboutLabel: 'Опыт и ключевые моменты',
@@ -580,6 +582,7 @@
           return paragraph;
         }));
         document.getElementById('contact-actions').setAttribute('aria-label', copy.actionsLabel);
+        document.getElementById('secondary-contact-actions').setAttribute('aria-label', copy.otherContactLabel);
         document.getElementById('email-action-label').textContent = copy.email;
         document.getElementById('telegram-action-label').textContent = copy.telegram;
         document.getElementById('contact-action-label').textContent = copy.contact;
