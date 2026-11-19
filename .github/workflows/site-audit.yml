@@ -28,10 +28,8 @@ jobs:
             ruhome=$(curl -fsSL --connect-timeout 6 --max-time 12 "https://shubin.co/ru/?qa=$GITHUB_SHA" || true)
             casepage=$(curl -fsSL --connect-timeout 6 --max-time 12 "https://shubin.co/simula/?qa=$GITHUB_SHA" || true)
             rucase=$(curl -fsSL --connect-timeout 6 --max-time 12 "https://shubin.co/ru/simula/?qa=$GITHUB_SHA" || true)
-            if echo "$home" | grep -q 'href="/about/"' &&
-               echo "$ruhome" | grep -q 'href="/ru/about/"' &&
-               echo "$bio" | grep -q 'class="profile-card work-card bio-card"' &&
-               echo "$rubio" | grep -q 'class="bio-card"' &&
+            if echo "$home" | grep -q 'class="profile-about bio-home"' &&
+               echo "$ruhome" | grep -q 'class="profile-about bio-home"' &&
                echo "$casepage" | grep -q 'Interactive AI simulator for managing the information space' &&
                echo "$rucase" | grep -q 'Интерактивный ИИ-тренажер управления информационным полем'; then
               echo "New HTML version is published"
