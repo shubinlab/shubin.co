@@ -82,6 +82,30 @@ for (const route of routes) {
     await context.close();
   }
 }
+// Red Team: a failed JSON request or disabled JavaScript must not make the biography disappear.
+for (const lang of ['en','ru']) {
+  const pathName=lang==='en'?'/':'/ru/';
+  const expected=lang==='en'?'I build businesses from scratch':'Создаю бизнесы с нуля';
+  for (const failureMode of ['no-js','json-blocked']) {
+    const context=await browser.newContext({
+      viewport:{width:375,height:900},javaScriptEnabled:failureMode!=='no-js',
+      reducedMotion:'no-preference'
+    });
+    const page=await context.newPage();
+    if(failureMode==='json-blocked')await page.route('**/content/*.json',route=>route.abort());
+    const response=await page.goto(site+pathName,{waitUntil:'domcontentloaded',timeout:25000});
+    await page.waitForTimeout(700);
+    const intro=await page.locator('#profile-intro').innerText();
+    const about=await page.locator('#profile-about-copy').innerText();
+    const ok=response.status()===200 && intro.includes(expected) && about.length>150;
+    const result={route:pathName,mode:failureMode,ok,intro:intro.slice(0,110),aboutLength:about.length};
+    observations.push(result);
+    if(!ok)failed=true;
+    console.log(JSON.stringify(result));
+    await page.screenshot({path:path.join('site-audit',lang+'-home-'+failureMode+'.png'),fullPage:true});
+    await context.close();
+  }
+}
 fs.writeFileSync('site-audit/results.json',JSON.stringify(observations,null,2));
 await browser.close();
 if(failed)process.exitCode=1;

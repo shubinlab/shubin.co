@@ -598,11 +598,9 @@
         }
       });
       loadProfileCopy().catch(error => {
+        // Keep server-readable fallback content in the HTML if JSON is unavailable.
+        // The canvas animation must still initialize independently.
         console.error('Unable to load profile content', error);
-        const intro = document.getElementById('profile-intro');
-        if (intro) intro.textContent = language === 'ru'
-          ? 'Не удалось загрузить описание. Свяжитесь со мной через кнопки ниже.'
-          : 'Unable to load the profile. Please use the contact links below.';
       });
       } else {
         reducedMotion.addEventListener('change', (event) => {

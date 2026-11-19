@@ -26,7 +26,7 @@ jobs:
           for i in $(seq 1 48); do
             home=$(curl -fsSL --connect-timeout 6 --max-time 12 "https://shubin.co/?qa=$GITHUB_SHA" || true)
             casepage=$(curl -fsSL --connect-timeout 6 --max-time 12 "https://shubin.co/simula/?qa=$GITHUB_SHA" || true)
-            if echo "$home" | grep -q 'profile.js?v=18' && echo "$casepage" | grep -q 'simula-copy.js?v=1'; then
+            if echo "$home" | grep -q 'profile.js?v=19' && echo "$casepage" | grep -q 'simula-copy.js?v=1'; then
               echo "New HTML version is published"
               exit 0
             fi

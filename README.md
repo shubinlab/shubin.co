@@ -48,3 +48,7 @@ The static HTML head retains stable crawlable title and social-preview text for 
 ### Simula case study
 
 The two Simula pages retain static HTML for SEO and JavaScript-disabled readers, while editable editorial text lives in `content/simula.en.json` and `content/simula.ru.json`. The standalone `simula-copy.js` reads these JSON files and updates the page using safe `textContent`. Existing historic quotes, awards, original images and citations remain in the case's HTML. A browser audit checks both languages at desktop and mobile sizes.
+
+### Failure-resistant HTML fallback
+
+The two homepages include a pre-rendered copy snapshot so that visitors without JavaScript (or with a temporary JSON fetch failure) still see the introduction and professional background. Normal visitors receive the current JSON text, which overrides the snapshot. The JSON files remain the place for routine edits. For major changes, refresh the HTML fallback and static social metadata as well. Browser tests exercise JavaScript-disabled and failed-JSON modes.
