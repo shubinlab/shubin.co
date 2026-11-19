@@ -25,8 +25,13 @@ jobs:
         run: |
           for i in $(seq 1 48); do
             home=$(curl -fsSL --connect-timeout 6 --max-time 12 "https://shubin.co/?qa=$GITHUB_SHA" || true)
+            ruhome=$(curl -fsSL --connect-timeout 6 --max-time 12 "https://shubin.co/ru/?qa=$GITHUB_SHA" || true)
             casepage=$(curl -fsSL --connect-timeout 6 --max-time 12 "https://shubin.co/simula/?qa=$GITHUB_SHA" || true)
-            if echo "$home" | grep -q 'profile.js?v=19' && echo "$casepage" | grep -q 'simula-copy.js?v=1'; then
+            rucase=$(curl -fsSL --connect-timeout 6 --max-time 12 "https://shubin.co/ru/simula/?qa=$GITHUB_SHA" || true)
+            if echo "$home" | grep -q 'class="profile-about bio-home"' &&
+               echo "$ruhome" | grep -q 'class="profile-about bio-home"' &&
+               echo "$casepage" | grep -q 'Interactive AI simulator for managing the information space' &&
+               echo "$rucase" | grep -q 'Интерактивный ИИ-тренажер управления информационным полем'; then
               echo "New HTML version is published"
               exit 0
             fi

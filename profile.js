@@ -418,8 +418,7 @@
         const response = await fetch('/content/' + language + '.json', {cache: 'no-cache'});
         if (!response.ok) throw new Error('Profile content HTTP ' + response.status);
         const copy = await response.json();
-        if (!copy || typeof copy.intro !== 'string' || !Array.isArray(copy.aboutBlocks) ||
-            !copy.aboutBlocks.every(block => typeof block.lead === 'string' && typeof block.text === 'string')) {
+        if (!copy || typeof copy.intro !== 'string') {
           throw new Error('Invalid profile content');
         }
         languageCopy[language] = copy;
@@ -495,7 +494,7 @@
         const personData = JSON.parse(personDataElement.textContent);
         personData.url = pageUrl;
         personData.jobTitle = copy.role;
-        const aboutText = copy.aboutBlocks.map(block => block.lead + block.text).join('\n\n');
+        const aboutText = document.getElementById('profile-about-copy')?.textContent?.trim() || '';
         personData.description = `${copy.intro}\n\n${aboutText}`;
         personDataElement.textContent = JSON.stringify(personData);
         syncContactRoutes();
@@ -504,15 +503,8 @@
         document.getElementById('profile-photo').alt = copy.photoAlt;
         document.getElementById('profile-role').textContent = copy.role;
         document.getElementById('profile-intro').textContent = copy.intro;
-        document.getElementById('profile-about-label').textContent = copy.aboutLabel;
-        const aboutCopy = document.getElementById('profile-about-copy');
-        aboutCopy.replaceChildren(...copy.aboutBlocks.map(block => {
-          const paragraph = document.createElement('p');
-          const lead = document.createElement('strong');
-          lead.textContent = block.lead;
-          paragraph.append(lead, document.createTextNode(block.text));
-          return paragraph;
-        }));
+        // Full biography is static, crawlable HTML in each language's homepage.
+        // Do not replace it from JSON; this also preserves content without JavaScript.
         document.getElementById('contact-actions').setAttribute('aria-label', copy.actionsLabel);
         document.getElementById('secondary-contact-actions').setAttribute('aria-label', copy.otherContactLabel);
         document.getElementById('email-action-label').textContent = copy.email;

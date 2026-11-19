@@ -4,10 +4,10 @@ import path from 'node:path';
 
 const site = process.env.SITE_URL || 'https://shubin.co';
 const routes = [
-  {path:'/',lang:'en',kind:'home',expected:'I build businesses from scratch'},
-  {path:'/ru/',lang:'ru',kind:'home',expected:'Создаю бизнесы с нуля'},
-  {path:'/simula/',lang:'en',kind:'simula',expected:'Simula: Crisis communications training simulator'},
-  {path:'/ru/simula/',lang:'ru',kind:'simula',expected:'Simula: тренажёр кризисных коммуникаций'}
+  {path:'/',lang:'en',kind:'home',expected:'Founder and head of an international company'},
+  {path:'/ru/',lang:'ru',kind:'home',expected:'Основатель и глава международной компании'},
+  {path:'/simula/',lang:'en',kind:'simula',expected:'Interactive AI simulator for managing the information space'},
+  {path:'/ru/simula/',lang:'ru',kind:'simula',expected:'Интерактивный ИИ-тренажер управления информационным полем'}
 ];
 fs.mkdirSync('site-audit',{recursive:true});
 const exe = process.env.CHROME_BIN || '/usr/bin/google-chrome';
@@ -31,6 +31,8 @@ for (const route of routes) {
         await page.locator('#profile-intro').getByText(route.expected,{exact:false}).waitFor({timeout:15000});
         const body=await page.locator('#profile-about-copy').innerText();
         result.checks.about=body.length;
+        result.checks.bioSections=await page.locator('.bio-home .bio-section').count();
+        result.checks.bioFigures=body.includes('50,000') || body.includes('50 000');
         result.checks.copy=body.slice(0,130);
         const data=await page.request.get(site+'/content/'+route.lang+'.json');
         result.checks.jsonStatus=data.status();
@@ -41,12 +43,10 @@ for (const route of routes) {
         await page.locator('.simula-hero h1').getByText(route.expected,{exact:false}).waitFor({timeout:15000});
         result.checks.title=await page.locator('h1').innerText();
         result.checks.mainVisible=await page.locator('.simula-hero').isVisible();
-        result.checks.roleVisible=await page.locator('.simula-contribution').isVisible();
+        result.checks.introVisible=await page.locator('.simula-intro').isVisible();
+        result.checks.restoredNoJson=await page.locator('script[src*="simula-copy"]').count()===0;
         result.checks.awards=await page.locator('.simula-award').count();
         result.checks.sourceLinks=await page.locator('.simula-sources a').count();
-        const caseCopy=await page.request.get(site+'/content/simula.'+route.lang+'.json');
-        result.checks.caseJsonStatus=caseCopy.status();
-        result.checks.caseJsonSame=(await page.locator('h1').innerText())===(await caseCopy.json()).text['.simula-hero h1'];
         result.checks.cta=await page.locator('.simula-cta h2').innerText();
       }
       result.checks.overflow=await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth+2);
@@ -71,8 +71,8 @@ for (const route of routes) {
       result.ok=result.checks.status===200 && !result.checks.overflow &&
         result.checks.canvas?.width>0 && result.checks.canvas?.height>0 &&
         errors.length===0 && badResponses.length===0 &&
-        (route.kind==='home'?result.checks.jsonSame && result.checks.about>150 && result.checks.contactLinks>0:
-         result.checks.mainVisible && result.checks.roleVisible && result.checks.caseJsonSame &&
+        (route.kind==='home'?result.checks.jsonSame && result.checks.about>150 && result.checks.bioSections===3 && result.checks.bioFigures && result.checks.contactLinks>0:
+         result.checks.mainVisible && result.checks.introVisible && result.checks.restoredNoJson &&
          result.checks.awards>=3 && result.checks.sourceLinks>=4) &&
          (width!==1440 || result.checks.backgroundPixels>0);
     }catch(e){result.ok=false;result.failure=String(e)}
@@ -82,10 +82,10 @@ for (const route of routes) {
     await context.close();
   }
 }
-// Red Team: a failed JSON request or disabled JavaScript must not make the biography disappear.
+// Red Team: disabled JavaScript or failed JSON must not hide the full homepage biography.
 for (const lang of ['en','ru']) {
   const pathName=lang==='en'?'/':'/ru/';
-  const expected=lang==='en'?'I build businesses from scratch':'Создаю бизнесы с нуля';
+  const expected=lang==='en'?'Founder and head of an international company':'Основатель и глава международной компании';
   for (const failureMode of ['no-js','json-blocked']) {
     const context=await browser.newContext({
       viewport:{width:375,height:900},javaScriptEnabled:failureMode!=='no-js',
@@ -97,7 +97,7 @@ for (const lang of ['en','ru']) {
     await page.waitForTimeout(700);
     const intro=await page.locator('#profile-intro').innerText();
     const about=await page.locator('#profile-about-copy').innerText();
-    const ok=response.status()===200 && intro.includes(expected) && about.length>150;
+    const ok=response.status()===200 && intro.includes(expected) && about.length>1000;
     const result={route:pathName,mode:failureMode,ok,intro:intro.slice(0,110),aboutLength:about.length};
     observations.push(result);
     if(!ok)failed=true;
