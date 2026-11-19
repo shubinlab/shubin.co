@@ -1,5 +1,4 @@
 /* Biography pages only. Shared palette, card, background and typography come from profile.css/work.css. */
-.bio-card { width: min(100%, 860px); }
 .bio-hero-top { display: flex; align-items: center; gap: 18px; }
 .bio-avatar { display: block; width: 76px; height: 76px; flex: none; border: 1px solid var(--panel-edge); border-radius: 50%; object-fit: cover; }
 .bio-hero h1 { margin: 0; max-width: none; font: 650 clamp(29px, 4vw, 40px)/1.14 var(--sans); letter-spacing: -0.035em; }
@@ -30,3 +29,12 @@
   .bio-deck { font-size: 16px; }
   .bio-facts > div { grid-template-columns: 1fr; gap: 2px; }
 }
+
+/* Full professional biography below the existing homepage hero and featured project. */
+.profile-about.bio-home { margin-top: 20px; padding-top: 0; border-top: 0; }
+.bio-home .bio-section:first-child { margin-top: 0; }
+.bio-home .bio-section { margin-top: 28px; padding-top: 24px; }
+.bio-home .bio-section-title h2 { margin: 0; font-size: 19px; }
+.bio-home .bio-section-body h3 { color: var(--text); }
+.bio-home .bio-section-body .bio-note { margin: 20px 0 0 !important; }
+.bio-home .bio-results strong { color: var(--text); }
