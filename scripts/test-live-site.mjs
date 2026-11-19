@@ -72,7 +72,6 @@ for (const route of routes) {
         result.checks.canvas?.width>0 && result.checks.canvas?.height>0 &&
         errors.length===0 && badResponses.length===0 &&
         (route.kind==='home'?result.checks.jsonSame && result.checks.about>150 && result.checks.bioSections===3 && result.checks.bioFigures && result.checks.contactLinks>0:
-         route.kind==='about'?result.checks.sectionCount===3 && result.checks.roleContent.includes('50') && result.checks.noUnexpectedJson:
          result.checks.mainVisible && result.checks.introVisible && result.checks.restoredNoJson &&
          result.checks.awards>=3 && result.checks.sourceLinks>=4) &&
          (width!==1440 || result.checks.backgroundPixels>0);
