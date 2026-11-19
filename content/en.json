@@ -1,0 +1,54 @@
+{
+  "photoAlt": "Portrait of Yuri Shubin",
+  "actionsLabel": "Contact options",
+  "otherContactLabel": "Secondary contact options",
+  "featuredImageAlt": "Digital Atom Simula training interface",
+  "email": "Let's talk",
+  "telegram": "Telegram",
+  "emailSubject": "Business partnership — shubin.co",
+  "emailBody": "Hi Yuri,\n\nI'd like to discuss a possible business partnership.\n\nBest,",
+  "telegramDraft": "Hi Yuri, I'd like to discuss a possible business partnership.",
+  "contact": "Save contact",
+  "share": "Share",
+  "shareAriaLabel": "Share contact",
+  "selected": "A product my team built",
+  "description": "A crisis communication training simulator developed by the digital products team I led.",
+  "projectDetails": "View project",
+  "projectPath": "/simula/",
+  "nav": "Professional profiles",
+  "copied": "Contact-card link copied.",
+  "noShare": "Sharing is unavailable. Copy the contact-card link from the address bar.",
+  "shareFailed": "Could not open sharing. Copy the contact-card link from the address bar.",
+  "ogLocale": "en_US",
+  "ogImageAlt": "Portrait of Yuri Shubin, entrepreneur.",
+  "pageUrl": "https://shubin.co/",
+  "ogImage": "https://shubin.co/og-card.png?v=2",
+  "shareTitle": "Yuri Shubin — contact card",
+  "shareText": "Contact card for Yuri Shubin.",
+  "name": "Yuri Shubin",
+  "brand": "Business · Products · Partnerships",
+  "role": "Entrepreneur",
+  "intro": "I build businesses from scratch and launch new ventures within established companies.",
+  "aboutLabel": "What I've built",
+  "aboutBlocks": [
+    {
+      "lead": "I've spent over 20 years building businesses, products, and teams.",
+      "text": " I co-founded an online flight booking service that we launched in nine months."
+    },
+    {
+      "lead": "Later, I helped start a new digital products division at a large company.",
+      "text": " I grew the team from 2 to 50 people and led the development of a platform used by tens of thousands of employees."
+    },
+    {
+      "lead": "Today, I'm interested in building new businesses with entrepreneurs who know their markets well.",
+      "text": " I can help find and test opportunities, build the product and team, and lead the launch."
+    },
+    {
+      "lead": "Let's talk about what we could build together.",
+      "text": ""
+    }
+  ],
+  "title": "Yuri Shubin — Entrepreneur",
+  "descriptionMeta": "Entrepreneur building businesses from scratch and new ventures within established companies. Over 20 years building businesses, products, and teams.",
+  "ogDescription": "I build businesses from scratch and launch new ventures within established companies."
+}

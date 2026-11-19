@@ -412,92 +412,20 @@
       if (hasProfileUI) {
       const motionToggle = document.getElementById('motion-toggle');
       const languageToggle = document.getElementById('language-toggle');
-      const languageCopy = {
-        en: {
-          name: 'Yuri Shubin',
-          photoAlt: 'Portrait of Yuri Shubin',
-          actionsLabel: 'Contact options',
-          otherContactLabel: 'Secondary contact options',
-          brand: 'Business · Products · AI',
-          role: 'Entrepreneur | Product Builder',
-          intro: 'I spot business opportunities, get people excited about new ideas, and build teams that turn those ideas into real products.',
-          aboutLabel: 'Experience and key moments',
-          aboutBlocks: [
-            { lead: "For over 20 years, I've built businesses, launched products, and led teams.", text: ' I was Deputy CEO of a company with over 1,500 employees and managed IT outsourcing under a three-year, $25 million contract.' },
-            { lead: 'In the nuclear energy industry, I built and led a digital products division.', text: ' I grew the team from 2 to 50 people, covering everything from product development to launch and support. I also led the development of a digital platform used by tens of thousands of employees and co-founded an online travel agency.' },
-            { lead: "Today, I'm building Shubin Lab, focusing on AI agents and SaaS.", text: ' I research markets, test and use new technologies, and look for opportunities to build new products and businesses.' },
-            { lead: 'I help founders and business owners figure out which ideas are worth building, how to make money from them', text: ' and how AI can help automate work, cut costs, and create new products and sources of revenue.' }
-          ],
-          featuredImageAlt: 'Digital Atom Simula training interface',
-          email: 'Email',
-          telegram: 'Telegram',
-          emailSubject: 'Inquiry from shubin.co',
-          emailBody: 'Hi Yuri,\n\nI would like to discuss a possible collaboration.\n\nBest regards,',
-          telegramDraft: 'Hi Yuri, I would like to discuss a project.',
-          contact: 'Save contact',
-          share: 'Share',
-          shareAriaLabel: 'Share contact',
-          selected: 'One of my products',
-          description: 'Interactive AI simulator for managing the information space in crisis situations.',
-          projectDetails: 'Product details',
-          projectPath: '/simula/',
-          nav: 'Professional profiles',
-          copied: 'Contact-card link copied.',
-          noShare: 'Sharing is unavailable. Copy the contact-card link from the address bar.',
-          shareFailed: 'Could not open sharing. Copy the contact-card link from the address bar.',
-          title: 'Yuri Shubin — Entrepreneur | Product Builder',
-          descriptionMeta: 'Entrepreneur and product builder focused on AI agents and SaaS. Over 20 years building businesses, launching products, and leading teams.',
-          ogLocale: 'en_US',
-          ogDescription: 'I spot business opportunities, get people excited about new ideas, and build teams that turn those ideas into real products.',
-          ogImageAlt: 'Portrait of Yuri Shubin, entrepreneur and product builder.',
-          pageUrl: 'https://shubin.co/',
-          ogImage: 'https://shubin.co/og-card.png?v=2',
-          shareTitle: 'Yuri Shubin — contact card',
-          shareText: 'Contact card for Yuri Shubin.',
-        },
-        ru: {
-          brand: 'Бизнес · продукты · ИИ',
-          name: 'Юрий Шубин',
-          photoAlt: 'Портрет Юрия Шубина',
-          actionsLabel: 'Варианты связи',
-          otherContactLabel: 'Дополнительные способы связи',
-          role: 'Предприниматель | Создатель продуктов',
-          intro: 'Умею находить новые возможности для бизнеса, увлекать людей идеями и собирать команды, которые превращают эти идеи в реальные продукты.',
-          aboutLabel: 'Опыт и ключевые моменты',
-          aboutBlocks: [
-            { lead: 'Более 20 лет создаю бизнесы, запускаю продукты и руковожу командами.', text: ' Был заместителем генерального директора компании с более чем 1 500 сотрудниками. Руководил IT-аутсорсингом по трёхлетнему контракту на $25 млн.' },
-            { lead: 'В атомной отрасли создал и возглавил подразделение цифровых продуктов.', text: ' Вырастил команду с двух до полусотни специалистов, которые занимались разработкой, внедрением и поддержкой продуктов. Руководил созданием цифровой платформы, которой пользуются десятки тысяч сотрудников. Также основал с партнёрами онлайн-агентство по продаже авиабилетов.' },
-            { lead: 'Сейчас развиваю Shubin Lab и сосредоточен на AI-агентах и SaaS.', text: ' Исследую рынки, тестирую и внедряю новые технологии, ищу возможности для создания продуктов и бизнеса.' },
-            { lead: 'Помогаю предпринимателям и владельцам компаний понять, какие идеи стоит развивать, как на них зарабатывать', text: ' и как использовать AI для автоматизации работы, сокращения расходов, создания новых продуктов и источников дохода.' }
-          ],
-          featuredImageAlt: 'Интерфейс тренажёра Digital Atom Simula',
-          email: 'Email',
-          telegram: 'Telegram',
-          emailSubject: 'Запрос о сотрудничестве — shubin.co',
-          emailBody: 'Здравствуйте, Юрий!\n\nПредлагаю обсудить сотрудничество.\n\nС уважением,',
-          telegramDraft: 'Здравствуйте, Юрий! Предлагаю обсудить проект.',
-          contact: 'В контакты',
-          share: 'Поделиться',
-          shareAriaLabel: 'Поделиться контактом',
-          selected: 'Один из моих продуктов',
-          description: 'Интерактивный ИИ-тренажер управления информационным полем в кризисных ситуациях',
-          projectDetails: 'Описание продукта',
-          projectPath: '/ru/simula/',
-          nav: 'Профессиональные профили',
-          copied: 'Ссылка на контактную карточку скопирована.',
-          noShare: 'Поделиться не удалось. Скопируйте ссылку на контактную карточку.',
-          shareFailed: 'Не удалось открыть меню «Поделиться». Скопируйте ссылку на контактную карточку.',
-          title: 'Юрий Шубин — Предприниматель | Создатель продуктов',
-          descriptionMeta: 'Предприниматель и создатель продуктов. Более 20 лет создаю бизнесы, запускаю продукты и руковожу командами. Развиваю Shubin Lab и работаю с AI-агентами и SaaS.',
-          ogLocale: 'ru_RU',
-          ogDescription: 'Умею находить новые возможности для бизнеса, увлекать людей идеями и собирать команды, которые превращают эти идеи в реальные продукты.',
-          ogImageAlt: 'Портрет Юрия Шубина, предпринимателя и создателя продуктов.',
-          pageUrl: 'https://shubin.co/ru/',
-          ogImage: 'https://shubin.co/og-card-ru.png?v=1',
-          shareTitle: 'Контактная карточка Юрия Шубина',
-          shareText: 'Контакты Юрия Шубина.',
-        },
-      };
+      // Content is maintained in /content/en.json and /content/ru.json.
+      const languageCopy = Object.create(null);
+      async function loadProfileCopy() {
+        const response = await fetch('/content/' + language + '.json', {cache: 'no-cache'});
+        if (!response.ok) throw new Error('Profile content HTTP ' + response.status);
+        const copy = await response.json();
+        if (!copy || typeof copy.intro !== 'string' || !Array.isArray(copy.aboutBlocks) ||
+            !copy.aboutBlocks.every(block => typeof block.lead === 'string' && typeof block.text === 'string')) {
+          throw new Error('Invalid profile content');
+        }
+        languageCopy[language] = copy;
+        setLanguage(language);
+        showLocaleSuggestion();
+      }
       function saveLanguageChoice(value) {
         try {
           window.localStorage.setItem('shubin-language-choice', value);
@@ -649,6 +577,7 @@
       const contactCardUrl = 'https://shubin.co/yuri-shubin.vcf';
       shareContactButton.addEventListener('click', async () => {
         const copy = languageCopy[language];
+        if (!copy) return;
         const data = {
           title: copy.shareTitle,
           text: copy.shareText,
@@ -821,7 +750,12 @@
       }
 
       if (hasProfileUI) {
-        setLanguage(language);
-        showLocaleSuggestion();
+        loadProfileCopy().catch(error => {
+          console.error('Unable to load profile content', error);
+          const intro = document.getElementById('profile-intro');
+          if (intro) intro.textContent = language === 'ru'
+            ? 'Не удалось загрузить описание. Свяжитесь со мной через кнопки ниже.'
+            : 'Unable to load the profile. Please use the contact links below.';
+        });
       }
       resizeAll();

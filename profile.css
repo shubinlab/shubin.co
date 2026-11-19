@@ -475,3 +475,7 @@
       @media (prefers-reduced-motion: reduce) {
         *, *::before, *::after { scroll-behavior: auto !important; }
       }
+
+/* Readable paragraphs in the existing visual design. */
+.profile-about-copy { max-width: 72ch; gap: 16px; }
+.profile-about-copy p:last-child strong { color: var(--accent); }

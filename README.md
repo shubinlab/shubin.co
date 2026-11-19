@@ -33,3 +33,14 @@ GitHub Pages publishes the `main` branch root at <https://shubin.co/>. Keep `CNA
 ## Local preview
 
 From the repository root, run `python3 -m http.server 8000` and open <http://localhost:8000/>.
+
+## Updating homepage text
+
+The design and markup remain in `index.html` and `ru/index.html`, styles in `profile.css`, and behavior/animation in `profile.js`. All homepage text used by the JavaScript is stored separately:
+
+- `content/en.json` — English text
+- `content/ru.json` — Russian text
+
+To change any wording or button label, edit the relevant JSON file and commit it. GitHub Pages serves the updated text without changing markup, CSS, or JS. The page fetches JSON at runtime and uses `textContent` rather than injecting HTML.
+
+The static HTML head retains stable crawlable title and social-preview text for crawlers that do not execute JavaScript. For major changes of positioning, also refresh these initial metadata values. Browser-rendered metadata and the JSON-LD description are updated automatically from JSON.
