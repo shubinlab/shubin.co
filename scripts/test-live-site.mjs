@@ -10,7 +10,8 @@ const routes = [
   {path:'/ru/simula/',lang:'ru',kind:'simula',expected:'Интерактивный ИИ-тренажер'}
 ];
 fs.mkdirSync('site-audit',{recursive:true});
-const browser = await chromium.launch({headless:true});
+const exe = process.env.CHROME_BIN || '/usr/bin/google-chrome';
+const browser = await chromium.launch({headless:true,executablePath:exe,args:['--no-sandbox']});
 const observations=[];
 let failed = false;
 for (const route of routes) {
