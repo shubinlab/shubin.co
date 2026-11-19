@@ -6,8 +6,6 @@ const site = process.env.SITE_URL || 'https://shubin.co';
 const routes = [
   {path:'/',lang:'en',kind:'home',expected:'Founder and head of an international company'},
   {path:'/ru/',lang:'ru',kind:'home',expected:'Основатель и глава международной компании'},
-  {path:'/about/',lang:'en',kind:'about',expected:'Yuri Shubin'},
-  {path:'/ru/about/',lang:'ru',kind:'about',expected:'Юрий Шубин'},
   {path:'/simula/',lang:'en',kind:'simula',expected:'Interactive AI simulator for managing the information space'},
   {path:'/ru/simula/',lang:'ru',kind:'simula',expected:'Интерактивный ИИ-тренажер управления информационным полем'}
 ];
@@ -33,19 +31,14 @@ for (const route of routes) {
         await page.locator('#profile-intro').getByText(route.expected,{exact:false}).waitFor({timeout:15000});
         const body=await page.locator('#profile-about-copy').innerText();
         result.checks.about=body.length;
+        result.checks.bioSections=await page.locator('.bio-home .bio-section').count();
+        result.checks.bioFigures=body.includes('50,000') || body.includes('50 000');
         result.checks.copy=body.slice(0,130);
         const data=await page.request.get(site+'/content/'+route.lang+'.json');
         result.checks.jsonStatus=data.status();
         const doc=await data.json();
         result.checks.jsonSame=await page.locator('#profile-intro').innerText()===doc.intro;
         result.checks.contactLinks=await page.locator('a[href="/contact/email/"]').count();
-      } else if(route.kind==='about') {
-        await page.locator('.bio-hero h1').getByText(route.expected,{exact:true}).waitFor({timeout:15000});
-        result.checks.title=await page.locator('h1').innerText();
-        result.checks.sectionCount=await page.locator('.bio-section').count();
-        result.checks.roleContent=await page.locator('.bio-results').innerText();
-        result.checks.languageLink=await page.locator('a.work-language').getAttribute('href');
-        result.checks.noUnexpectedJson=await page.locator('script[src*="simula-copy"]').count()===0;
       } else {
         await page.locator('.simula-hero h1').getByText(route.expected,{exact:false}).waitFor({timeout:15000});
         result.checks.title=await page.locator('h1').innerText();
@@ -78,7 +71,7 @@ for (const route of routes) {
       result.ok=result.checks.status===200 && !result.checks.overflow &&
         result.checks.canvas?.width>0 && result.checks.canvas?.height>0 &&
         errors.length===0 && badResponses.length===0 &&
-        (route.kind==='home'?result.checks.jsonSame && result.checks.about>150 && result.checks.contactLinks>0:
+        (route.kind==='home'?result.checks.jsonSame && result.checks.about>150 && result.checks.bioSections===3 && result.checks.bioFigures && result.checks.contactLinks>0:
          route.kind==='about'?result.checks.sectionCount===3 && result.checks.roleContent.includes('50') && result.checks.noUnexpectedJson:
          result.checks.mainVisible && result.checks.introVisible && result.checks.restoredNoJson &&
          result.checks.awards>=3 && result.checks.sourceLinks>=4) &&
@@ -90,7 +83,7 @@ for (const route of routes) {
     await context.close();
   }
 }
-// Red Team: failed JSON loading or disabled JavaScript must not hide the homepage profile.
+// Red Team: disabled JavaScript or failed JSON must not hide the full homepage biography.
 for (const lang of ['en','ru']) {
   const pathName=lang==='en'?'/':'/ru/';
   const expected=lang==='en'?'Founder and head of an international company':'Основатель и глава международной компании';
@@ -105,7 +98,7 @@ for (const lang of ['en','ru']) {
     await page.waitForTimeout(700);
     const intro=await page.locator('#profile-intro').innerText();
     const about=await page.locator('#profile-about-copy').innerText();
-    const ok=response.status()===200 && intro.includes(expected) && about.length>150;
+    const ok=response.status()===200 && intro.includes(expected) && about.length>1000;
     const result={route:pathName,mode:failureMode,ok,intro:intro.slice(0,110),aboutLength:about.length};
     observations.push(result);
     if(!ok)failed=true;
