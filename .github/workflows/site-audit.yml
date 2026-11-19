@@ -26,8 +26,6 @@ jobs:
           for i in $(seq 1 48); do
             home=$(curl -fsSL --connect-timeout 6 --max-time 12 "https://shubin.co/?qa=$GITHUB_SHA" || true)
             ruhome=$(curl -fsSL --connect-timeout 6 --max-time 12 "https://shubin.co/ru/?qa=$GITHUB_SHA" || true)
-            bio=$(curl -fsSL --connect-timeout 6 --max-time 12 "https://shubin.co/about/?qa=$GITHUB_SHA" || true)
-            rubio=$(curl -fsSL --connect-timeout 6 --max-time 12 "https://shubin.co/ru/about/?qa=$GITHUB_SHA" || true)
             casepage=$(curl -fsSL --connect-timeout 6 --max-time 12 "https://shubin.co/simula/?qa=$GITHUB_SHA" || true)
             rucase=$(curl -fsSL --connect-timeout 6 --max-time 12 "https://shubin.co/ru/simula/?qa=$GITHUB_SHA" || true)
             if echo "$home" | grep -q 'href="/about/"' &&
