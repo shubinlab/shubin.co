@@ -6,8 +6,8 @@ const site = process.env.SITE_URL || 'https://shubin.co';
 const routes = [
   {path:'/',lang:'en',kind:'home',expected:'I build businesses from scratch'},
   {path:'/ru/',lang:'ru',kind:'home',expected:'Создаю бизнесы с нуля'},
-  {path:'/simula/',lang:'en',kind:'simula',expected:'Interactive AI simulator'},
-  {path:'/ru/simula/',lang:'ru',kind:'simula',expected:'Интерактивный ИИ-тренажер'}
+  {path:'/simula/',lang:'en',kind:'simula',expected:'Simula: Crisis communications training simulator'},
+  {path:'/ru/simula/',lang:'ru',kind:'simula',expected:'Simula: тренажёр кризисных коммуникаций'}
 ];
 fs.mkdirSync('site-audit',{recursive:true});
 const exe = process.env.CHROME_BIN || '/usr/bin/google-chrome';
@@ -38,10 +38,16 @@ for (const route of routes) {
         result.checks.jsonSame=await page.locator('#profile-intro').innerText()===doc.intro;
         result.checks.contactLinks=await page.locator('a[href="/contact/email/"]').count();
       } else {
+        await page.locator('.simula-hero h1').getByText(route.expected,{exact:false}).waitFor({timeout:15000});
         result.checks.title=await page.locator('h1').innerText();
         result.checks.mainVisible=await page.locator('.simula-hero').isVisible();
+        result.checks.roleVisible=await page.locator('.simula-contribution').isVisible();
         result.checks.awards=await page.locator('.simula-award').count();
         result.checks.sourceLinks=await page.locator('.simula-sources a').count();
+        const caseCopy=await page.request.get(site+'/content/simula.'+route.lang+'.json');
+        result.checks.caseJsonStatus=caseCopy.status();
+        result.checks.caseJsonSame=(await page.locator('h1').innerText())===(await caseCopy.json()).text['.simula-hero h1'];
+        result.checks.cta=await page.locator('.simula-cta h2').innerText();
       }
       result.checks.overflow=await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth+2);
       result.checks.canvas=await page.evaluate(()=>{const c=document.querySelector('#ascii');return {width:c?.width,height:c?.height,display:c?getComputedStyle(c).display:'missing'};});
@@ -66,7 +72,9 @@ for (const route of routes) {
         result.checks.canvas?.width>0 && result.checks.canvas?.height>0 &&
         errors.length===0 && badResponses.length===0 &&
         (route.kind==='home'?result.checks.jsonSame && result.checks.about>150 && result.checks.contactLinks>0:
-         result.checks.mainVisible && result.checks.awards>=3 && result.checks.sourceLinks>=4);
+         result.checks.mainVisible && result.checks.roleVisible && result.checks.caseJsonSame &&
+         result.checks.awards>=3 && result.checks.sourceLinks>=4) &&
+         (width!==1440 || result.checks.backgroundPixels>0);
     }catch(e){result.ok=false;result.failure=String(e)}
     observations.push(result);
     if(!result.ok)failed=true;

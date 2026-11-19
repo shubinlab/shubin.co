@@ -205,3 +205,7 @@
   .simula-award-viewer { padding: 8px; }
   .simula-award-viewer button { top: 8px; right: 8px; }
 }
+
+/* Case-study contribution, consistent with the existing Simula section design. */
+.simula-contribution { margin-top: 24px; }
+.simula-contribution p { max-width: 72ch; margin: 0; }

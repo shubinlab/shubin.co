@@ -21,6 +21,19 @@ jobs:
         run: |
           npm install --no-save --no-package-lock playwright@1.56.1
           which google-chrome-stable || which google-chrome || which chromium || which chromium-browser
+      - name: Wait for published site files to update
+        run: |
+          for i in $(seq 1 48); do
+            home=$(curl -fsSL --connect-timeout 6 --max-time 12 "https://shubin.co/?qa=$GITHUB_SHA" || true)
+            casepage=$(curl -fsSL --connect-timeout 6 --max-time 12 "https://shubin.co/simula/?qa=$GITHUB_SHA" || true)
+            if echo "$home" | grep -q 'profile.js?v=18' && echo "$casepage" | grep -q 'simula-copy.js?v=1'; then
+              echo "New HTML version is published"
+              exit 0
+            fi
+            sleep 5
+          done
+          echo "Published version did not appear" >&2
+          exit 1
       - name: Audit published site with real Chromium
         run: node scripts/test-live-site.mjs
       - name: Upload browser audit artifacts

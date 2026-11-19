@@ -44,3 +44,7 @@ The design and markup remain in `index.html` and `ru/index.html`, styles in `pro
 To change any wording or button label, edit the relevant JSON file and commit it. GitHub Pages serves the updated text without changing markup, CSS, or JS. The page fetches JSON at runtime and uses `textContent` rather than injecting HTML.
 
 The static HTML head retains stable crawlable title and social-preview text for crawlers that do not execute JavaScript. For major changes of positioning, also refresh these initial metadata values. Browser-rendered metadata and the JSON-LD description are updated automatically from JSON.
+
+### Simula case study
+
+The two Simula pages retain static HTML for SEO and JavaScript-disabled readers, while editable editorial text lives in `content/simula.en.json` and `content/simula.ru.json`. The standalone `simula-copy.js` reads these JSON files and updates the page using safe `textContent`. Existing historic quotes, awards, original images and citations remain in the case's HTML. A browser audit checks both languages at desktop and mobile sizes.
