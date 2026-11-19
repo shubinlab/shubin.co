@@ -1,0 +1,32 @@
+/* Biography pages only. Shared palette, card, background and typography come from profile.css/work.css. */
+.bio-card { width: min(100%, 860px); }
+.bio-hero-top { display: flex; align-items: center; gap: 18px; }
+.bio-avatar { display: block; width: 76px; height: 76px; flex: none; border: 1px solid var(--panel-edge); border-radius: 50%; object-fit: cover; }
+.bio-hero h1 { margin: 0; max-width: none; font: 650 clamp(29px, 4vw, 40px)/1.14 var(--sans); letter-spacing: -0.035em; }
+.bio-deck { max-width: 74ch; margin: 20px 0 0; color: var(--text); font: 17px/1.65 var(--sans); }
+.bio-section { display: grid; grid-template-columns: minmax(130px, .34fr) minmax(0, 1fr); gap: 24px; margin-top: 28px; padding-top: 24px; border-top: 1px solid var(--panel-edge); }
+.bio-section-title { min-width: 0; }
+.bio-section-title h2 { margin: 0; color: var(--text); font: 650 19px/1.35 var(--sans); letter-spacing: -.02em; }
+.bio-section-body { min-width: 0; }
+.bio-section-body p { margin: 0 0 14px; color: var(--muted); font: 15px/1.7 var(--sans); }
+.bio-section-body > p:last-child { margin-bottom: 0; }
+.bio-section-body h3 { margin: 24px 0 12px; color: var(--text); font: 650 15px/1.4 var(--sans); }
+.bio-section-body h3:first-child { margin-top: 0; }
+.bio-facts { display: grid; gap: 0; margin: 0; }
+.bio-facts > div { display: grid; grid-template-columns: minmax(85px, 116px) minmax(0, 1fr); gap: 8px 12px; padding: 10px 0; border-top: 1px solid rgba(182,230,194,.1); }
+.bio-facts dt { color: var(--accent); font: 600 13px/1.6 var(--mono); }
+.bio-facts dd { margin: 0; color: var(--text); font: 14px/1.65 var(--sans); }
+.bio-list { display: grid; gap: 11px; margin: 0; padding-left: 20px; color: var(--muted); font: 14px/1.7 var(--sans); }
+.bio-list li { padding-left: 2px; }
+.bio-list li::marker { color: var(--accent); }
+.bio-list strong, .bio-section-body strong { color: var(--text); font-weight: 650; }
+.bio-note { margin-top: 22px !important; padding: 12px 16px; border-left: 2px solid var(--accent); background: rgba(16,28,21,.5); }
+.bio-note strong { color: var(--accent); }
+.bio-nav { margin-top: 30px; }
+@media (max-width: 640px) {
+  .bio-section { grid-template-columns: 1fr; gap: 14px; margin-top: 24px; padding-top: 20px; }
+  .bio-hero-top { gap: 14px; }
+  .bio-avatar { width: 60px; height: 60px; }
+  .bio-deck { font-size: 16px; }
+  .bio-facts > div { grid-template-columns: 1fr; gap: 2px; }
+}
