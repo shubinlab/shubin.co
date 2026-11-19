@@ -597,6 +597,13 @@
           if (error.name !== 'AbortError') shareStatus.textContent = copy.shareFailed;
         }
       });
+      loadProfileCopy().catch(error => {
+        console.error('Unable to load profile content', error);
+        const intro = document.getElementById('profile-intro');
+        if (intro) intro.textContent = language === 'ru'
+          ? 'Не удалось загрузить описание. Свяжитесь со мной через кнопки ниже.'
+          : 'Unable to load the profile. Please use the contact links below.';
+      });
       } else {
         reducedMotion.addEventListener('change', (event) => {
           paused = event.matches;
@@ -749,13 +756,4 @@
         if (active) scheduleFrame();
       }
 
-      if (hasProfileUI) {
-        loadProfileCopy().catch(error => {
-          console.error('Unable to load profile content', error);
-          const intro = document.getElementById('profile-intro');
-          if (intro) intro.textContent = language === 'ru'
-            ? 'Не удалось загрузить описание. Свяжитесь со мной через кнопки ниже.'
-            : 'Unable to load the profile. Please use the contact links below.';
-        });
-      }
       resizeAll();
