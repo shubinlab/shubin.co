@@ -8,6 +8,7 @@ Canonical public source and active custom-domain Pages site for Yuri Shubin: <ht
 - `ru/index.html` — Russian (`/ru/`)
 - `simula/` and `ru/simula/` — source-backed project note in both languages, limited to claims in the dated 2022 publication
 - `profile.css` and `profile.js` — shared profile styles and interaction/animation
+- `bio.css` — scoped full-biography styling used directly on both homepages
 - `work.css` — styles for source-backed project pages
 - `analytics.js` — first-party GA4 event tracking; GA4 loads on every page view
 - `contact/email/` and `contact/telegram/` — safe contact redirects used so analytics vendors never receive the full contact URL
@@ -34,21 +35,33 @@ GitHub Pages publishes the `main` branch root at <https://shubin.co/>. Keep `CNA
 
 From the repository root, run `python3 -m http.server 8000` and open <http://localhost:8000/>.
 
-## Updating homepage text
+## Updating homepage content
 
-The design and markup remain in `index.html` and `ru/index.html`, styles in `profile.css`, and behavior/animation in `profile.js`. All homepage text used by the JavaScript is stored separately:
+The existing bilingual homepage cards, contact buttons, featured project and interactive
+background remain in `index.html` (English) and `ru/index.html` (Russian).
+The approved **full biography is displayed directly on each homepage** as semantic,
+crawlable HTML. Its layout uses the existing visual system and the small, scoped
+`bio.css` stylesheet. There are no separate `/about/` pages.
 
-- `content/en.json` — English text
-- `content/ru.json` — Russian text
+`content/en.json` and `content/ru.json` store short profile labels, the heading
+subtitle, contact UI strings and metadata. The homepage biography itself is authored
+in the two HTML files so visitors see it even when JavaScript or JSON requests fail.
+For substantive text changes, update both language versions and the corresponding
+intro/metadata in JSON and static HTML. The animation in `profile.js` must not
+replace or erase the static biography.
 
-To change any wording or button label, edit the relevant JSON file and commit it. GitHub Pages serves the updated text without changing markup, CSS, or JS. The page fetches JSON at runtime and uses `textContent` rather than injecting HTML.
+## Simula case-study restoration
 
-The static HTML head retains stable crawlable title and social-preview text for crawlers that do not execute JavaScript. For major changes of positioning, also refresh these initial metadata values. Browser-rendered metadata and the JSON-LD description are updated automatically from JSON.
+`simula/index.html` and `ru/simula/index.html` were restored together from
+commit `71d9d43bec261e94974ffb5733a4ae57cb66e48e` (November 17, 2026),
+before the November 19 changes. They retain the original layout, original copy,
+images, awards, sources and citation links from that snapshot. The two pages
+use the current shared animation script and stylesheet versions but do not load
+`simula-copy.js` or depend on Simula JSON. Do not silently replace them with
+alternate content or reintroduce the separate-copy layer.
 
-### Simula case study
+## Verification
 
-The two Simula pages retain static HTML for SEO and JavaScript-disabled readers, while editable editorial text lives in `content/simula.en.json` and `content/simula.ru.json`. The standalone `simula-copy.js` reads these JSON files and updates the page using safe `textContent`. Existing historic quotes, awards, original images and citations remain in the case's HTML. A browser audit checks both languages at desktop and mobile sizes.
-
-### Failure-resistant HTML fallback
-
-The two homepages include a pre-rendered copy snapshot so that visitors without JavaScript (or with a temporary JSON fetch failure) still see the introduction and professional background. Normal visitors receive the current JSON text, which overrides the snapshot. The JSON files remain the place for routine edits. For major changes, refresh the HTML fallback and static social metadata as well. Browser tests exercise JavaScript-disabled and failed-JSON modes.
+`scripts/test-live-site.mjs` checks both homepages and Simula versions at desktop
+and mobile widths, including no-JavaScript/failed-JSON fallback for the full
+biographies. GitHub Actions runs it after the updated files appear on Pages.
