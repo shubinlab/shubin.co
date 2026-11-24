@@ -10,7 +10,7 @@ Canonical public source and active custom-domain Pages site for Yuri Shubin: <ht
 - `profile.css` and `profile.js` — shared profile styles and interaction/animation
 - `bio.css` — scoped full-biography styling used directly on both homepages
 - `work.css` — styles for source-backed project pages
-- `analytics.js` — first-party GA4 event tracking; GA4 loads on every page view
+- `analytics.js` — first-party GA4 event tracking; GA4 and the HubSpot tracking code load on profile, project, and privacy pages
 - `contact/email/` and `contact/telegram/` — safe contact redirects used so analytics vendors never receive the full contact URL
 - `og-card*.png`, `favicon*`, and `yuri-shubin-avatar.webp` — social and browser images
 - `yuri-shubin.vcf` — downloadable contact card
@@ -22,7 +22,8 @@ The deliberately small, flat layout has no package manager, framework, or build 
 
 ## Analytics and crawlers
 
-- GA4 loads when a page opens. The site does not display an analytics choice dialog or store an analytics preference.
+- GA4 and HubSpot tracking load when a page opens. The site does not display an analytics/cookie choice dialog or store an analytics preference.
+- HubSpot uses browser cookies to recognize visitors and record visited pages. The tracking code is installed on profile, project, and privacy pages; contact redirect pages are excluded.
 - Email and Telegram clicks use the `contact_click` intent event. vCard clicks use `vcard_click`; opening the share sheet uses `contact_share_click`. The latter two are not key events. Events send fixed methods only, not addresses, message text, or clicked URLs.
 - `robots.txt` allows OAI-SearchBot and Claude-SearchBot while disallowing GPTBot, ClaudeBot, CCBot, and Amazonbot. It sets the shared `__usage_ai-training` preference to Disallow. Google-Extended is an explicit exception: Gemini grounding and training are allowed. Google Search uses Googlebot, which is allowed by the wildcard group.
 - Microsoft Clarity is not installed or active on this site.
